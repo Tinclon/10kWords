@@ -33,7 +33,7 @@
   .main-content { position: fixed; left: 180px; top: 0; right: 0; bottom: 0; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; background: #fff; }
   body.notch-left nav { left: env(safe-area-inset-left) !important; }
   body.notch-left .main-content { left: calc(180px + env(safe-area-inset-left)) !important; }
-  html.standalone, html.standalone body { height: 100dvh; background: #fff !important; }
+  html.standalone, html.standalone body { height: 100dvh; }
   html.standalone nav { padding-top: env(safe-area-inset-top); }
   html.standalone .main-content { padding-top: env(safe-area-inset-top); }
   .group-divider { display: none; width: 80%; margin: 0.4rem auto; border-top: 2px solid rgba(255,255,255,0.9); }
@@ -43,6 +43,7 @@
     .verb-col { display: none; }
     .verb-col.col-active { display: block; width: 100%; flex: 0 0 100%; max-width: 100%; }
     nav { width: 36px !important; min-width: 36px !important; max-width: 36px !important; padding: 0.2rem !important; padding-top: 0.6rem !important; overflow: hidden; }
+    html.standalone nav { padding-top: max(0.6rem, env(safe-area-inset-top)) !important; }
     nav .sidebar-label { display: none !important; }
     nav .group-divider { display: block !important; }
     nav .nav-link { padding: 0.15rem; font-size: 0.9rem; text-align: center; }
@@ -70,7 +71,7 @@
 </nav>
 
 <div class="px-5 pt-5 pb-4 main-content">
-<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v4.7</small>
+<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v4.8</small>
 
 <div id="english" class="lang-page"></div>
 <div id="french" class="lang-page d-none"></div>
