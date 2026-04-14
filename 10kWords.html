@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#212529">
 <meta name="apple-mobile-web-app-title" content="10kWords">
 <title>Verb Conjugations</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
@@ -28,8 +29,10 @@
   .lang-page { position: relative; }
   @media (max-width: 1399px) { .info-box { position: static; width: 100%; max-width: 100%; margin-bottom: 1rem; } }
   html, body { height: 100dvh; width: 100vw; overflow: hidden; margin: 0; padding: 0; background: #212529 !important; }
-  nav { position: fixed; left: max(0px, env(safe-area-inset-left)) !important; top: 0; bottom: 0; width: 180px; overflow-y: auto; }
-  .main-content { position: fixed; left: calc(180px + max(0px, env(safe-area-inset-left))); top: 0; right: 0; bottom: 0; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; background: #fff; }
+  nav { position: fixed; left: 0; top: 0; bottom: 0; width: 180px; overflow-y: auto; }
+  .main-content { position: fixed; left: 180px; top: 0; right: 0; bottom: 0; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; background: #fff; }
+  body.notch-left nav { left: env(safe-area-inset-left) !important; }
+  body.notch-left .main-content { left: calc(180px + env(safe-area-inset-left)) !important; }
   .group-divider { display: none; width: 80%; margin: 0.4rem auto; border-top: 2px solid rgba(255,255,255,0.9); }
   .col-selector { display: none; }
   @media (max-width: 991px), (max-height: 500px) {
@@ -41,7 +44,9 @@
     nav .group-divider { display: block !important; }
     nav .nav-link { padding: 0.15rem; font-size: 0.9rem; text-align: center; }
     nav .nav-link.active { background: rgba(255,255,255,0.15) !important; border-radius: 0.3rem; }
-    .main-content { left: calc(36px + max(0px, env(safe-area-inset-left))) !important; }
+    .main-content { left: 36px !important; }
+    body.notch-left nav { left: env(safe-area-inset-left) !important; }
+    body.notch-left .main-content { left: calc(36px + env(safe-area-inset-left)) !important; }
   }
 </style>
 </head>
@@ -404,6 +409,16 @@ renderLanguage('spanish', spanishData);
 renderLanguage('english', englishData);
 renderLanguage('portuguese', portugueseData);
 renderLanguage('czech', czechData);
+
+(function() {
+  function detectNotchSide() {
+    var type = (screen.orientation || {}).type || '';
+    document.body.classList.toggle('notch-left', type === 'landscape-primary');
+  }
+  if (screen.orientation) screen.orientation.addEventListener('change', detectNotchSide);
+  window.addEventListener('orientationchange', detectNotchSide);
+  detectNotchSide();
+})();
 </script>
 
 </body>
