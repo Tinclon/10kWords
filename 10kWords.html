@@ -36,7 +36,7 @@
     .col-selector { display: flex; }
     .verb-col { display: none; }
     .verb-col.col-active { display: block; width: 100%; flex: 0 0 100%; max-width: 100%; }
-    nav { width: 36px !important; min-width: 36px !important; max-width: 36px !important; padding: 0.2rem !important; padding-top: 0.6rem !important; padding-left: max(0.2rem, env(safe-area-inset-left)) !important; overflow: hidden; }
+    nav { width: calc(36px + env(safe-area-inset-left)) !important; min-width: calc(36px + env(safe-area-inset-left)) !important; max-width: calc(36px + env(safe-area-inset-left)) !important; padding: 0.2rem !important; padding-top: 0.6rem !important; padding-left: max(0.2rem, env(safe-area-inset-left)) !important; overflow: hidden; }
     nav .sidebar-label { display: none !important; }
     nav .nav-link { padding: 0.15rem; font-size: 0.9rem; text-align: center; }
     nav .nav-link.active { background: rgba(255,255,255,0.15) !important; border-radius: 0.3rem; }
@@ -61,7 +61,7 @@
 </nav>
 
 <div class="container-fluid px-5 pt-5 pb-4 main-content" style="position:relative;">
-<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v1.4</small>
+<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v1.5</small>
 
 <div id="english" class="lang-page"></div>
 <div id="french" class="lang-page d-none"></div>
