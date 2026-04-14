@@ -62,7 +62,7 @@
 </nav>
 
 <div class="container-fluid px-5 pt-5 pb-4 main-content" style="position:relative;">
-<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v1.8</small>
+<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v1.9</small>
 
 <div id="english" class="lang-page"></div>
 <div id="french" class="lang-page d-none"></div>
@@ -74,19 +74,16 @@
 
 <script>
 (function() {
-  var probe = document.createElement('div');
-  probe.style.cssText = 'position:fixed;left:0;top:0;width:env(safe-area-inset-left);height:0;visibility:hidden;';
-  var probeR = document.createElement('div');
-  probeR.style.cssText = 'position:fixed;left:0;top:0;width:env(safe-area-inset-right);height:0;visibility:hidden;';
-  document.body.appendChild(probe);
-  document.body.appendChild(probeR);
   function detectNotchSide() {
-    var left = probe.offsetWidth;
-    var right = probeR.offsetWidth;
-    document.body.classList.toggle('notch-left', left > right);
+    var type = (screen.orientation || {}).type || '';
+    // landscape-secondary = rotated so notch is on the left
+    var notchLeft = type === 'landscape-secondary';
+    document.body.classList.toggle('notch-left', notchLeft);
   }
-  window.addEventListener('resize', detectNotchSide);
-  screen.orientation && screen.orientation.addEventListener('change', detectNotchSide);
+  if (screen.orientation) {
+    screen.orientation.addEventListener('change', detectNotchSide);
+  }
+  window.addEventListener('orientationchange', detectNotchSide);
   detectNotchSide();
 })();
 </script>
