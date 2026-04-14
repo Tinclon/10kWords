@@ -15,10 +15,11 @@ No build step, test suite, or linter. Static site served directly from `10kWords
 
 ## Architecture
 
-Single-page static app with no framework. All rendering is vanilla JS in `10kWords.html`.
+Single-page static app with no framework. All rendering is vanilla JS.
 
 - `verbs/<language>.js` — each file exports a single global variable (e.g., `frenchData`, `czechData`) containing all data for that language: theme colors, mood definitions, tense group hierarchy, tense definitions with columns, regular examples, and irregular verb patterns.
-- `10kWords.html` — loads all language data files via `<script>` tags, then calls `renderLanguage(containerId, data)` for each. The renderer builds the entire UI from the data: mood toggle buttons, group tabs (Past/Present/Future), tense sub-tabs, column selectors for mobile, conjugation tables, and an info box.
+- `app.js` — all application logic: rendering functions, navigation handlers, verb search, and iOS safe area detection.
+- `10kWords.html` — loads Bootstrap CSS/JS, language data files, and `app.js`. Contains the static HTML shell (sidebar nav, language page containers) and all CSS styles.
 - UI uses Bootstrap 5.3 for layout/tabs and Bootstrap Icons. No other dependencies.
 
 ### Data structure per language file
@@ -36,8 +37,12 @@ Each pattern: `{name, description, verbs, example, conjugations[][], dimmed?}`. 
 - `renderTenseContent()` — builds column selector and conjugation tables for a tense
 - `renderPattern()` — builds a single verb pattern table
 - `switchLang()` / `switchMood()` / `switchCol()` — UI navigation handlers
+- `buildVerbIndex()` — builds a lookup map from verb names to their pattern locations across all tenses
+- `searchVerb()` / `renderSearchResults()` / `clearVerbSearch()` / `resetVerbSearch()` — verb search functionality
+- `getActiveMoodKey()` / `getActiveTenseKey()` — helpers to read current UI state
 
 ## Adding a New Language
 
 1. Create `verbs/<language>.js` following the existing data structure (use any existing file as template)
-2. In `10kWords.html`: add a `<script src="verbs/<language>.js">` tag, a sidebar nav link with flag emoji, a `<div id="<language>" class="lang-page d-none">` container, and a `renderLanguage('<language>', <language>Data)` call
+2. In `10kWords.html`: add a `<script src="verbs/<language>.js">` tag, a sidebar nav link with flag emoji, and a `<div id="<language>" class="lang-page d-none">` container
+3. In `app.js`: add a `renderLanguage('<language>', <language>Data)` call in the init section
