@@ -29,10 +29,10 @@
   .lang-page { position: relative; }
   @media (max-width: 1399px) { .info-box { position: static; width: 100%; max-width: 100%; margin-bottom: 1rem; } }
   html, body { height: 100%; width: 100vw; overflow: hidden; margin: 0; padding: 0; background: #212529 !important; }
-  nav { position: fixed; left: 0; top: 0; bottom: 0; width: 180px; overflow-y: auto; }
-  .main-content { position: fixed; left: 180px; top: 0; right: 0; bottom: 0; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; background: #fff; }
-  body.notch-left nav { left: env(safe-area-inset-left) !important; }
-  body.notch-left .main-content { left: calc(180px + env(safe-area-inset-left)) !important; }
+  body { display: flex; }
+  nav { flex-shrink: 0; width: 180px; overflow-y: auto; }
+  .main-content { flex: 1; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; background: #fff; }
+  body.notch-left nav { padding-left: env(safe-area-inset-left); }
   html.standalone, html.standalone body { height: 100dvh; }
   html.standalone nav { padding-top: env(safe-area-inset-top); }
   html.standalone .main-content { padding-top: calc(env(safe-area-inset-top)) !important; }
@@ -48,9 +48,7 @@
     nav .group-divider { display: block !important; }
     nav .nav-link { padding: 0.15rem; font-size: 0.9rem; text-align: center; }
     nav .nav-link.active { background: rgba(255,255,255,0.15) !important; border-radius: 0.3rem; }
-    .main-content { left: 36px !important; }
-    body.notch-left nav { left: env(safe-area-inset-left) !important; }
-    body.notch-left .main-content { left: calc(36px + env(safe-area-inset-left)) !important; }
+    .main-content { margin-left: 0 !important; }
   }
 </style>
 </head>
@@ -71,7 +69,7 @@
 </nav>
 
 <div class="px-5 pt-5 pb-4 main-content">
-<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v4.14</small>
+<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v5.0</small>
 
 <div id="english" class="lang-page"></div>
 <div id="french" class="lang-page d-none"></div>
