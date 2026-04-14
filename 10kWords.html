@@ -33,6 +33,9 @@
   .main-content { position: fixed; left: 180px; top: 0; right: 0; bottom: 0; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; background: #fff; }
   body.notch-left nav { left: env(safe-area-inset-left) !important; }
   body.notch-left .main-content { left: calc(180px + env(safe-area-inset-left)) !important; }
+  html.standalone, html.standalone body { height: 100dvh; background: #fff !important; }
+  html.standalone nav { padding-top: env(safe-area-inset-top); }
+  html.standalone .main-content { padding-top: env(safe-area-inset-top); }
   .group-divider { display: none; width: 80%; margin: 0.4rem auto; border-top: 2px solid rgba(255,255,255,0.9); }
   .col-selector { display: none; }
   @media (max-width: 991px), (max-height: 500px) {
@@ -67,7 +70,7 @@
 </nav>
 
 <div class="px-5 pt-5 pb-4 main-content">
-<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v4.6</small>
+<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v4.7</small>
 
 <div id="english" class="lang-page"></div>
 <div id="french" class="lang-page d-none"></div>
@@ -409,6 +412,8 @@ renderLanguage('spanish', spanishData);
 renderLanguage('english', englishData);
 renderLanguage('portuguese', portugueseData);
 renderLanguage('czech', czechData);
+
+if (window.navigator.standalone) document.documentElement.classList.add('standalone');
 
 (function() {
   function detectNotchSide() {
