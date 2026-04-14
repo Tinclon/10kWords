@@ -6,12 +6,33 @@
 <style>
 * { margin: 0; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 html, body { background: yellow; height: 100dvh; width: 100vw; overflow: hidden; }
-nav { position: fixed; left: 0; top: 0; bottom: 0; width: 50px; background: red; }
+nav { position: fixed; left: 0; top: 0; bottom: 0; width: 50px; background: red; border-right: 3px solid lime; }
 .main-content { position: fixed; left: 50px; top: 0; right: 0; bottom: 0; background: blue; overflow-y: auto; }
 </style>
 </head>
 <body>
 <nav>NAV</nav>
-<div class="main-content">CONTENT - t3 (no flex, position fixed)</div>
+<div class="main-content">
+  <div id="info" style="color:white; padding:10px; font-family:monospace;"></div>
+</div>
+<script>
+function update() {
+  var nav = document.querySelector('nav');
+  var rect = nav.getBoundingClientRect();
+  var cs = getComputedStyle(nav);
+  var info = document.getElementById('info');
+  info.innerHTML = 't5 - diagnostics<br>' +
+    'nav.getBoundingClientRect(): ' + JSON.stringify({left: rect.left, width: rect.width, right: rect.right}) + '<br>' +
+    'nav computedStyle width: ' + cs.width + '<br>' +
+    'nav computedStyle paddingLeft: ' + cs.paddingLeft + '<br>' +
+    'nav computedStyle marginLeft: ' + cs.marginLeft + '<br>' +
+    'window.innerWidth: ' + window.innerWidth + '<br>' +
+    'screen.width: ' + screen.width + '<br>' +
+    'orientation: ' + ((screen.orientation || {}).type || 'unknown');
+}
+update();
+window.addEventListener('resize', update);
+if (screen.orientation) screen.orientation.addEventListener('change', update);
+</script>
 </body>
 </html>
