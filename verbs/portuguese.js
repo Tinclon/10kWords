@@ -3383,5 +3383,59 @@ var portugueseData = {
       ],
       "extra": "<strong>Personal Infinitive — unique to Portuguese</strong><br><br>No other major Romance language has a conjugated infinitive. It allows the infinitive to express who performs the action:<br><br>• <em>É importante <strong>falarmos</strong></em> = It's important <strong>for us to speak</strong><br>• <em>Antes de <strong>saíres</strong></em> = Before <strong>you leave</strong><br>• <em>Sem <strong>eles saberem</strong></em> = Without <strong>them knowing</strong><br><br>The forms are identical to the future subjunctive for regular verbs, but they differ for irregular verbs (ser: future subj. <em>for</em> vs. personal inf. <em>ser</em>)."
     }
+  },
+  "chart": {
+    "columns": ["Past (Passado)", "Present (Presente)", "Future (Futuro)", "Conditional (Condicional)"],
+    "rows": ["Simple (Simples)", "Compound (Composto)", "Imperfect (Imperfeito)", "Pluperfect (Mais-que-perfeito)"],
+    "groups": ["-ar: falar", "-er: comer", "-ir: partir"],
+    "cells": [
+      [
+        { "form": "Pret. perfeito simples", "rule": "Stem + endings",
+          "er": [["eu falei", "nós falámos"], ["tu falaste", "vós falastes"], ["ele falou", "eles falaram"]],
+          "ir": [["eu comi", "nós comemos"], ["tu comeste", "vós comestes"], ["ele comeu", "eles comeram"]],
+          "re": [["eu parti", "nós partimos"], ["tu partiste", "vós partistes"], ["ele partiu", "eles partiram"]] },
+        { "form": "Presente", "rule": "Stem + endings",
+          "er": [["eu falo", "nós falamos"], ["tu falas", "vós falais"], ["ele fala", "eles falam"]],
+          "ir": [["eu como", "nós comemos"], ["tu comes", "vós comeis"], ["ele come", "eles comem"]],
+          "re": [["eu parto", "nós partimos"], ["tu partes", "vós partis"], ["ele parte", "eles partem"]] },
+        { "form": "Futuro do presente", "rule": "Inf. + endings",
+          "er": [["eu falarei", "nós falaremos"], ["tu falarás", "vós falareis"], ["ele falará", "eles falarão"]],
+          "ir": [["eu comerei", "nós comeremos"], ["tu comerás", "vós comereis"], ["ele comerá", "eles comerão"]],
+          "re": [["eu partirei", "nós partiremos"], ["tu partirás", "vós partireis"], ["ele partirá", "eles partirão"]] },
+        { "form": "Futuro do pretérito", "rule": "Inf. + endings",
+          "er": [["eu falaria", "nós falaríamos"], ["tu falarias", "vós falaríeis"], ["ele falaria", "eles falariam"]],
+          "ir": [["eu comeria", "nós comeríamos"], ["tu comerias", "vós comeríeis"], ["ele comeria", "eles comeriam"]],
+          "re": [["eu partiria", "nós partiríamos"], ["tu partirias", "vós partiríeis"], ["ele partiria", "eles partiriam"]] }
+      ],
+      [
+        { "form": "Pret. perf. composto", "rule": "Pres. ter + p.p.",
+          "er": [["eu tenho falado", "nós temos falado"], ["tu tens falado", "vós tendes falado"], ["ele tem falado", "eles têm falado"]],
+          "ir": [["eu tenho comido", "nós temos comido"], ["tu tens comido", "vós tendes comido"], ["ele tem comido", "eles têm comido"]],
+          "re": [["eu tenho partido", "nós temos partido"], ["tu tens partido", "vós tendes partido"], ["ele tem partido", "eles têm partido"]] },
+        null,
+        { "form": "Futuro perf. composto", "rule": "Fut. ter + p.p.",
+          "er": [["eu terei falado", "nós teremos falado"], ["tu terás falado", "vós tereis falado"], ["ele terá falado", "eles terão falado"]],
+          "ir": [["eu terei comido", "nós teremos comido"], ["tu terás comido", "vós tereis comido"], ["ele terá comido", "eles terão comido"]],
+          "re": [["eu terei partido", "nós teremos partido"], ["tu terás partido", "vós tereis partido"], ["ele terá partido", "eles terão partido"]] },
+        { "form": "Fut. pret. composto", "rule": "Cond. ter + p.p.",
+          "er": [["eu teria falado", "nós teríamos falado"], ["tu terias falado", "vós teríeis falado"], ["ele teria falado", "eles teriam falado"]],
+          "ir": [["eu teria comido", "nós teríamos comido"], ["tu terias comido", "vós teríeis comido"], ["ele teria comido", "eles teriam comido"]],
+          "re": [["eu teria partido", "nós teríamos partido"], ["tu terias partido", "vós teríeis partido"], ["ele teria partido", "eles teriam partido"]] }
+      ],
+      [
+        { "form": "Pret. imperfeito", "rule": "Stem + endings",
+          "er": [["eu falava", "nós falávamos"], ["tu falavas", "vós faláveis"], ["ele falava", "eles falavam"]],
+          "ir": [["eu comia", "nós comíamos"], ["tu comias", "vós comíeis"], ["ele comia", "eles comiam"]],
+          "re": [["eu partia", "nós partíamos"], ["tu partias", "vós partíeis"], ["ele partia", "eles partiam"]] },
+        null, null, null
+      ],
+      [
+        { "form": "Mais-que-perf. composto", "rule": "Imp. ter + p.p.",
+          "er": [["eu tinha falado", "nós tínhamos falado"], ["tu tinhas falado", "vós tínheis falado"], ["ele tinha falado", "eles tinham falado"]],
+          "ir": [["eu tinha comido", "nós tínhamos comido"], ["tu tinhas comido", "vós tínheis comido"], ["ele tinha comido", "eles tinham comido"]],
+          "re": [["eu tinha partido", "nós tínhamos partido"], ["tu tinhas partido", "vós tínheis partido"], ["ele tinha partido", "eles tinham partido"]] },
+        null, null, null
+      ]
+    ]
   }
 };

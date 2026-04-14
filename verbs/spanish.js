@@ -8180,5 +8180,59 @@ var spanishData = {
       "key": "imperative",
       "description": "Gives commands, instructions, or requests directly."
     }
-  ]
+  ],
+  "chart": {
+    "columns": ["Past (Pasado)", "Present (Presente)", "Future (Futuro)", "Conditional (Condicional)"],
+    "rows": ["Simple (Simple)", "Compound (Compuesto)", "Imperfect (Imperfecto)", "Pluperfect (Pluscuamperfecto)"],
+    "groups": ["-ar: hablar", "-er: comer", "-ir: vivir"],
+    "cells": [
+      [
+        { "form": "Pretérito perfecto", "rule": "Stem + endings",
+          "er": [["yo hablé", "n. hablamos"], ["tú hablaste", "v. hablasteis"], ["él habló", "ellos hablaron"]],
+          "ir": [["yo comí", "n. comimos"], ["tú comiste", "v. comisteis"], ["él comió", "ellos comieron"]],
+          "re": [["yo viví", "n. vivimos"], ["tú viviste", "v. vivisteis"], ["él vivió", "ellos vivieron"]] },
+        { "form": "Presente", "rule": "Stem + endings",
+          "er": [["yo hablo", "n. hablamos"], ["tú hablas", "v. habláis"], ["él habla", "ellos hablan"]],
+          "ir": [["yo como", "n. comemos"], ["tú comes", "v. coméis"], ["él come", "ellos comen"]],
+          "re": [["yo vivo", "n. vivimos"], ["tú vives", "v. vivís"], ["él vive", "ellos viven"]] },
+        { "form": "Futuro simple", "rule": "Inf. + endings",
+          "er": [["yo hablaré", "n. hablaremos"], ["tú hablarás", "v. hablaréis"], ["él hablará", "ellos hablarán"]],
+          "ir": [["yo comeré", "n. comeremos"], ["tú comerás", "v. comeréis"], ["él comerá", "ellos comerán"]],
+          "re": [["yo viviré", "n. viviremos"], ["tú vivirás", "v. viviréis"], ["él vivirá", "ellos vivirán"]] },
+        { "form": "Cond. simple", "rule": "Inf. + endings",
+          "er": [["yo hablaría", "n. hablaríamos"], ["tú hablarías", "v. hablaríais"], ["él hablaría", "ellos hablarían"]],
+          "ir": [["yo comería", "n. comeríamos"], ["tú comerías", "v. comeríais"], ["él comería", "ellos comerían"]],
+          "re": [["yo viviría", "n. viviríamos"], ["tú vivirías", "v. viviríais"], ["él viviría", "ellos vivirían"]] }
+      ],
+      [
+        { "form": "Pret. perf. compuesto", "rule": "Pres. haber + p.p.",
+          "er": [["yo he hablado", "n. hemos hablado"], ["tú has hablado", "v. habéis hablado"], ["él ha hablado", "ellos han hablado"]],
+          "ir": [["yo he comido", "n. hemos comido"], ["tú has comido", "v. habéis comido"], ["él ha comido", "ellos han comido"]],
+          "re": [["yo he vivido", "n. hemos vivido"], ["tú has vivido", "v. habéis vivido"], ["él ha vivido", "ellos han vivido"]] },
+        null,
+        { "form": "Futuro perfecto", "rule": "Fut. haber + p.p.",
+          "er": [["yo habré hablado", "n. habremos hablado"], ["tú habrás hablado", "v. habréis hablado"], ["él habrá hablado", "ellos habrán hablado"]],
+          "ir": [["yo habré comido", "n. habremos comido"], ["tú habrás comido", "v. habréis comido"], ["él habrá comido", "ellos habrán comido"]],
+          "re": [["yo habré vivido", "n. habremos vivido"], ["tú habrás vivido", "v. habréis vivido"], ["él habrá vivido", "ellos habrán vivido"]] },
+        { "form": "Cond. perfecto", "rule": "Cond. haber + p.p.",
+          "er": [["yo habría hablado", "n. habríamos hablado"], ["tú habrías hablado", "v. habríais hablado"], ["él habría hablado", "ellos habrían hablado"]],
+          "ir": [["yo habría comido", "n. habríamos comido"], ["tú habrías comido", "v. habríais comido"], ["él habría comido", "ellos habrían comido"]],
+          "re": [["yo habría vivido", "n. habríamos vivido"], ["tú habrías vivido", "v. habríais vivido"], ["él habría vivido", "ellos habrían vivido"]] }
+      ],
+      [
+        { "form": "Imperfecto", "rule": "Stem + endings",
+          "er": [["yo hablaba", "n. hablábamos"], ["tú hablabas", "v. hablabais"], ["él hablaba", "ellos hablaban"]],
+          "ir": [["yo comía", "n. comíamos"], ["tú comías", "v. comíais"], ["él comía", "ellos comían"]],
+          "re": [["yo vivía", "n. vivíamos"], ["tú vivías", "v. vivíais"], ["él vivía", "ellos vivían"]] },
+        null, null, null
+      ],
+      [
+        { "form": "Pluscuamperfecto", "rule": "Imp. haber + p.p.",
+          "er": [["yo había hablado", "n. habíamos hablado"], ["tú habías hablado", "v. habíais hablado"], ["él había hablado", "ellos habían hablado"]],
+          "ir": [["yo había comido", "n. habíamos comido"], ["tú habías comido", "v. habíais comido"], ["él había comido", "ellos habían comido"]],
+          "re": [["yo había vivido", "n. habíamos vivido"], ["tú habías vivido", "v. habíais vivido"], ["él había vivido", "ellos habían vivido"]] },
+        null, null, null
+      ]
+    ]
+  }
 };

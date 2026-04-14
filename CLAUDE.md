@@ -18,8 +18,8 @@ No build step, test suite, or linter. Static site served directly from `10kWords
 Single-page static app with no framework. All rendering is vanilla JS.
 
 - `verbs/<language>.js` — each file exports a single global variable (e.g., `frenchData`, `czechData`) containing all data for that language: theme colors, mood definitions, tense group hierarchy, tense definitions with columns, regular examples, and irregular verb patterns.
-- `app.js` — all application logic: rendering functions, navigation handlers, verb search, and iOS safe area detection.
-- `10kWords.html` — loads Bootstrap CSS/JS, language data files, and `app.js`. Contains the static HTML shell (sidebar nav, language page containers) and all CSS styles.
+- `10kWords.js` — all application logic: rendering functions, navigation handlers, verb search, and iOS safe area detection.
+- `10kWords.html` — loads Bootstrap CSS/JS, language data files, and `10kWords.js`. Contains the static HTML shell (sidebar nav, language page containers) and all CSS styles.
 - UI uses Bootstrap 5.3 for layout/tabs and Bootstrap Icons. No other dependencies.
 
 ### Data structure per language file
@@ -45,4 +45,4 @@ Each pattern: `{name, description, verbs, example, conjugations[][], dimmed?}`. 
 
 1. Create `verbs/<language>.js` following the existing data structure (use any existing file as template)
 2. In `10kWords.html`: add a `<script src="verbs/<language>.js">` tag, a sidebar nav link with flag emoji, and a `<div id="<language>" class="lang-page d-none">` container
-3. In `app.js`: add a `renderLanguage('<language>', <language>Data)` call in the init section
+3. In `10kWords.js`: add a `renderLanguage('<language>', <language>Data)` call in the init section
