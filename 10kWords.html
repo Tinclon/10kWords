@@ -22,22 +22,26 @@
   .info-box p { margin-bottom: 0.4rem; }
   .lang-page { position: relative; }
   @media (max-width: 1399px) { .info-box { position: static; width: 100%; margin-bottom: 1rem; } }
+  html, body { height: 100%; overflow: hidden; }
+  body { display: flex; }
+  nav { flex-shrink: 0; overflow-y: auto; }
+  .main-content { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
   .col-selector { display: none; }
-  @media (max-width: 991px) {
+  @media (max-width: 991px), (max-height: 500px) {
     .col-selector { display: flex; }
     .verb-col { display: none; }
     .verb-col.col-active { display: block; width: 100%; flex: 0 0 100%; max-width: 100%; }
-    nav { width: 44px !important; padding: 0.3rem !important; padding-top: 0.8rem !important; overflow: hidden; }
+    nav { width: 36px !important; min-width: 36px !important; max-width: 36px !important; padding: 0.2rem !important; padding-top: 0.6rem !important; overflow: hidden; }
     nav .sidebar-label { display: none !important; }
-    nav .nav-link { padding: 0.2rem; font-size: 1rem; text-align: center; }
+    nav .nav-link { padding: 0.15rem; font-size: 0.9rem; text-align: center; }
     nav .nav-link.active { background: rgba(255,255,255,0.15) !important; border-radius: 0.3rem; }
-    .main-content { margin-left: 44px !important; }
+    .main-content { margin-left: 0 !important; }
   }
 </style>
 </head>
 <body class="d-flex">
 
-<nav class="bg-dark text-light position-fixed pt-4" style="width:180px; padding-left:1rem; padding-right:1rem; top:0; bottom:0; z-index:1030;">
+<nav class="bg-dark text-light pt-4" style="width:180px; padding-left:1rem; padding-right:1rem;">
 <h6 class="text-light mb-3 sidebar-label">Languages</h6>
 <div class="nav flex-column nav-pills">
 <small class="text-light d-block mt-2 mb-1 sidebar-label">Germanic</small>
@@ -51,7 +55,7 @@
 </div>
 </nav>
 
-<div class="container-fluid px-5 pt-5 pb-4 main-content" style="margin-left:150px;">
+<div class="container-fluid px-5 pt-5 pb-4 main-content">
 
 <div id="english" class="lang-page"></div>
 <div id="french" class="lang-page d-none"></div>
