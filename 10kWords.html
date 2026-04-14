@@ -26,9 +26,9 @@
   .info-box h6 { font-size: 0.85rem; margin-bottom: 0.3rem; }
   .info-box p { margin-bottom: 0.4rem; }
   .lang-page { position: relative; }
-  @media (max-width: 1399px) { .info-box { position: static; width: 100%; margin-bottom: 1rem; } }
+  @media (max-width: 1399px) { .info-box { position: static; width: 100%; max-width: 100%; margin-bottom: 1rem; } }
   html, body { height: 100dvh; width: 100vw; overflow: hidden; margin: 0; padding: 0; }
-  nav { position: fixed; left: 0; top: 0; bottom: 0; width: 180px; overflow-y: auto; }
+  nav { position: fixed; left: 0; top: 0; bottom: 0; width: 180px; padding-left: max(0px, env(safe-area-inset-left)) !important; overflow-y: auto; }
   .main-content { position: fixed; left: 180px; top: 0; right: 0; bottom: 0; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; background: #fff; }
   .group-divider { display: none; width: 80%; margin: 0.4rem auto; border-top: 2px solid rgba(255,255,255,0.9); }
   .col-selector { display: none; }
@@ -36,7 +36,7 @@
     .col-selector { display: flex; }
     .verb-col { display: none; }
     .verb-col.col-active { display: block; width: 100%; flex: 0 0 100%; max-width: 100%; }
-    nav { width: 36px !important; min-width: 36px !important; max-width: 36px !important; padding: 0.2rem !important; padding-top: 0.6rem !important; overflow: hidden; }
+    nav { width: 36px !important; min-width: 36px !important; max-width: 36px !important; padding: 0.2rem !important; padding-top: 0.6rem !important; padding-left: max(0.2rem, env(safe-area-inset-left)) !important; overflow: hidden; }
     nav .sidebar-label { display: none !important; }
     nav .group-divider { display: block !important; }
     nav .nav-link { padding: 0.15rem; font-size: 0.9rem; text-align: center; }
