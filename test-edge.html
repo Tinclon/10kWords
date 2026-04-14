@@ -8,13 +8,12 @@
 html, body { background: yellow; height: 100dvh; width: 100vw; overflow: hidden; }
 nav { position: fixed; left: 0; top: 0; bottom: 0; width: 50px; background: red; }
 .main-content { position: fixed; left: 50px; top: 0; right: 0; bottom: 0; background: blue; overflow-y: auto; }
-html.crios nav { width: calc(50px - env(safe-area-inset-left)); margin-left: calc(-1 * env(safe-area-inset-left)); }
-html.crios .main-content { left: calc(50px - env(safe-area-inset-left)); }
+html.crios nav { transform: translateX(calc(-1 * env(safe-area-inset-left))); }
 </style>
 </head>
 <body>
 <nav>NAV</nav>
-<div class="main-content">CONTENT - t6 (Chrome negative margin hack)</div>
+<div class="main-content">CONTENT - t7 (Chrome translateX hack)</div>
 <script>
 if (/CriOS/.test(navigator.userAgent)) document.documentElement.classList.add('crios');
 </script>
