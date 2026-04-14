@@ -3,35 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 html, body { background: yellow; height: 100dvh; width: 100vw; overflow: hidden; }
-nav { position: fixed; left: 0; top: 0; bottom: 0; width: 50px; background: red; border-right: 3px solid lime; }
-.main-content { position: fixed; left: 50px; top: 0; right: 0; bottom: 0; background: blue; overflow-y: auto; }
+body { display: flex; }
+nav { flex-shrink: 0; width: 50px; background: red; overflow-y: auto; }
+.main-content { flex: 1; background: blue; overflow-y: auto; }
 </style>
 </head>
-<body>
-<nav><div class="nav-inner">NAV</div></nav>
-<div class="main-content">
-  <div id="info" style="color:white; padding:10px; font-family:monospace;"></div>
-</div>
-<script>
-if (/CriOS/.test(navigator.userAgent)) document.documentElement.classList.add('crios');
-function update() {
-  var nav = document.querySelector('nav');
-  var inner = document.querySelector('.nav-inner');
-  var navRect = nav.getBoundingClientRect();
-  var innerRect = inner.getBoundingClientRect();
-  var info = document.getElementById('info');
-  info.innerHTML = 't9 - content offset diagnostics<br>' +
-    'nav rect: left=' + navRect.left + ' width=' + navRect.width + '<br>' +
-    'inner rect: left=' + innerRect.left + ' width=' + innerRect.width + '<br>' +
-    'inner offsetLeft: ' + inner.offsetLeft + '<br>' +
-    'orientation: ' + ((screen.orientation || {}).type || 'unknown');
-}
-update();
-window.addEventListener('resize', update);
-if (screen.orientation) screen.orientation.addEventListener('change', update);
-</script>
+<body class="d-flex">
+<nav>NAV</nav>
+<div class="main-content">CONTENT - t1 (Bootstrap + flex)</div>
 </body>
 </html>
