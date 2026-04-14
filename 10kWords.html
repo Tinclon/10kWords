@@ -27,17 +27,17 @@
     .col-selector { display: flex; }
     .verb-col { display: none; }
     .verb-col.col-active { display: block; width: 100%; flex: 0 0 100%; max-width: 100%; }
-    nav { width: 44px !important; padding: 0.3rem !important; padding-top: 0.8rem !important; overflow: hidden; }
+    nav { width: 36px !important; min-width: 36px !important; max-width: 36px !important; padding: 0.2rem !important; padding-top: 0.6rem !important; overflow: hidden; }
     nav .sidebar-label { display: none !important; }
-    nav .nav-link { padding: 0.2rem; font-size: 1rem; text-align: center; }
+    nav .nav-link { padding: 0.15rem; font-size: 0.9rem; text-align: center; }
     nav .nav-link.active { background: rgba(255,255,255,0.15) !important; border-radius: 0.3rem; }
-    .main-content { margin-left: 44px !important; }
+    .main-content { margin-left: 36px !important; }
   }
 </style>
 </head>
 <body class="d-flex">
 
-<nav class="bg-dark text-light position-fixed pt-4" style="width:180px; padding-left:1rem; padding-right:1rem; top:0; bottom:0; z-index:1030;">
+<nav class="bg-dark text-light position-fixed pt-4" style="width:180px; padding-left:1rem; padding-right:1rem; top:0; height:100dvh; z-index:1030;">
 <h6 class="text-light mb-3 sidebar-label">Languages</h6>
 <div class="nav flex-column nav-pills">
 <small class="text-light d-block mt-2 mb-1 sidebar-label">Germanic</small>
