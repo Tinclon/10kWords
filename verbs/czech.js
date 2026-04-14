@@ -1,6 +1,6 @@
 var czechData = {
   "language": "Czech",
-  "title": "Czech Verb Conjugations",
+  "title": "Czech Verbs",
   "theme": {
     "primary": "#6a1b9a",
     "secondary": "#4a148c",

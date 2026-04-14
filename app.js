@@ -5,6 +5,21 @@ var langSearchState = {};
 var searchTimers = {};
 
 // --- Utilities ---
+function renderPageHeader(langId, data, activePage) {
+  var conjActive = activePage === 'conjugation' ? ' active' : '';
+  var chartActive = activePage === 'chart' ? ' active' : '';
+  var label = activePage === 'conjugation' ? 'Conjugations' : 'Chart';
+  var html = '<div class="d-flex align-items-center mb-3 flex-wrap gap-2">';
+  html += '<h1 class="mb-0 me-3" style="color:' + data.theme.primary + ';">' + esc(data.title) + '</h1>';
+  html += '<div class="btn-group btn-group-sm" role="group">';
+  html += '<button type="button" class="btn btn-outline-secondary' + conjActive + '" onclick="switchPage(\'' + langId + '\', \'conjugation\', this)"><i class="bi bi-table"></i></button>';
+  html += '<button type="button" class="btn btn-outline-secondary' + chartActive + '" onclick="switchPage(\'' + langId + '\', \'chart\', this)"><i class="bi bi-grid-3x3"></i></button>';
+  html += '</div>';
+  html += '<span class="mb-0" style="color:' + data.theme.primary + '; font-size:1.2rem; font-weight:500;" id="' + langId + '-page-label">' + label + '</span>';
+  html += '</div>';
+  return html;
+}
+
 function esc(s) {
   var div = document.createElement('div');
   div.textContent = s;
@@ -60,6 +75,7 @@ function renderTenseContent(containerId, tenseKey, tense) {
     var colActiveClass = (c === 0) ? ' col-active' : '';
     html += '<div class="col-md-4 verb-col' + colActiveClass + '">';
     var col = tense.columns[c];
+    html += '<h5 class="text-center text-muted border-bottom pb-1 mb-2 col-header" style="font-size:0.95rem;">' + esc(col.label) + '</h5>';
     if (col.regular) {
       html += '<div class="regular-example">';
       html += '<table class="table table-bordered table-striped table-sm mb-0" style="max-width:80%;">';
@@ -140,12 +156,12 @@ function renderLanguage(containerId, data) {
 
   applyTheme(containerId, data.theme);
 
-  var html = '<div class="d-flex align-items-center mb-3 flex-wrap gap-2">';
-  html += '<h1 class="mb-0 me-3">' + esc(data.title) + '</h1>';
+  var html = renderPageHeader(containerId, data, 'conjugation');
+
+  // Hidden search bar (for future use)
   html += '<div class="input-group d-none" style="max-width:280px;">';
   html += '<input type="text" class="form-control form-control-sm" id="' + containerId + '-search" placeholder="Search verb..." autocomplete="off">';
   html += '<button class="btn btn-outline-secondary btn-sm d-none" type="button" id="' + containerId + '-search-clear" onclick="clearVerbSearch(\'' + containerId + '\')"><i class="bi bi-x-lg"></i></button>';
-  html += '</div>';
   html += '</div>';
 
   // Mood toggle
@@ -339,14 +355,32 @@ function switchLang(id, el) {
   document.querySelectorAll('.nav-pills .nav-link').forEach(function(b) { b.classList.remove('active'); });
   document.getElementById(id).classList.remove('d-none');
   el.classList.add('active');
+  // Reset toggle to conjugation view
+  document.querySelectorAll('[id="' + id + '-page-label"]').forEach(function(l) {
+    l.textContent = 'Conjugations';
+    var btnGroup = l.previousElementSibling;
+    if (btnGroup) {
+      btnGroup.querySelectorAll('.btn').forEach(function(b, i) {
+        b.classList.toggle('active', i === 0);
+      });
+    }
+  });
 }
 
 function switchPage(langId, page, el) {
   document.querySelectorAll('.lang-page').forEach(function(p) { p.classList.add('d-none'); });
-  document.querySelectorAll('.nav-pills .nav-link').forEach(function(b) { b.classList.remove('active'); });
   var targetId = page === 'conjugation' ? langId : langId + '-' + page;
   document.getElementById(targetId).classList.remove('d-none');
-  el.classList.add('active');
+  var idx = page === 'conjugation' ? 0 : 1;
+  document.querySelectorAll('[id="' + langId + '-page-label"]').forEach(function(l) {
+    l.textContent = page === 'conjugation' ? 'Conjugations' : 'Chart';
+    var btnGroup = l.previousElementSibling;
+    if (btnGroup) {
+      btnGroup.querySelectorAll('.btn').forEach(function(b, i) {
+        b.classList.toggle('active', i === idx);
+      });
+    }
+  });
 }
 
 // --- Search ---
@@ -460,7 +494,8 @@ function resetVerbSearch(containerId) {
 function renderChart(containerId, data, columns, rows, cells) {
   var container = document.getElementById(containerId);
 
-  var html = '<h1 style="color:' + data.theme.primary + ';">' + esc(data.title.replace('Conjugations', 'Chart')) + '</h1>';
+  var langId = containerId.replace('-chart', '');
+  var html = renderPageHeader(langId, data, 'chart');
   html += '<div class="table-responsive" style="height:calc(100vh - 8rem); display:flex; flex-direction:column;">';
   html += '<table class="table table-bordered table-sm" style="width:100%; table-layout:fixed; flex:1;">';
   html += '<thead><tr><th style="background:' + data.theme.tableHeader + '; color:#fff; width:9rem;"></th>';
@@ -582,7 +617,8 @@ function renderEnglishCharts(containerId, data) {
 
   var groups = ['Regular: walk', 'Irregular: go', 'Modal: can'];
 
-  var html = '<h1 style="color:' + data.theme.primary + ';">' + esc(data.title.replace('Conjugations', 'Chart')) + '</h1>';
+  var langId = containerId.replace('-chart', '');
+  var html = renderPageHeader(langId, data, 'chart');
   html += '<div class="table-responsive" style="height:calc(100vh - 8rem); display:flex; flex-direction:column;">';
   html += '<table class="table table-bordered" style="width:100%; table-layout:fixed; flex:1;">';
   html += '<thead><tr><th style="background:' + data.theme.tableHeader + '; color:#fff; width:9rem;"></th>';
@@ -692,7 +728,8 @@ function renderFrenchCharts(containerId, data) {
     ]
   ];
 
-  var html = '<h1 style="color:' + data.theme.primary + ';">' + esc(data.title.replace('Conjugations', 'Chart')) + '</h1>';
+  var langId = containerId.replace('-chart', '');
+  var html = renderPageHeader(langId, data, 'chart');
   html += '<div class="table-responsive" style="height:calc(100vh - 8rem); display:flex; flex-direction:column;">';
   html += '<table class="table table-bordered" style="width:100%; table-layout:fixed; flex:1;">';
   html += '<thead><tr><th style="background:' + data.theme.tableHeader + '; color:#fff; width:9rem;"></th>';
@@ -797,7 +834,8 @@ function renderSpanishCharts(containerId, data) {
 
   var groups = ['-ar: hablar', '-er: comer', '-ir: vivir'];
 
-  var html = '<h1 style="color:' + data.theme.primary + ';">' + esc(data.title.replace('Conjugations', 'Chart')) + '</h1>';
+  var langId = containerId.replace('-chart', '');
+  var html = renderPageHeader(langId, data, 'chart');
   html += '<div class="table-responsive" style="height:calc(100vh - 8rem); display:flex; flex-direction:column;">';
   html += '<table class="table table-bordered" style="width:100%; table-layout:fixed; flex:1;">';
   html += '<thead><tr><th style="background:' + data.theme.tableHeader + '; color:#fff; width:9rem;"></th>';
@@ -901,7 +939,8 @@ function renderPortugueseCharts(containerId, data) {
 
   var groups = ['-ar: falar', '-er: comer', '-ir: partir'];
 
-  var html = '<h1 style="color:' + data.theme.primary + ';">' + esc(data.title.replace('Conjugations', 'Chart')) + '</h1>';
+  var langId = containerId.replace('-chart', '');
+  var html = renderPageHeader(langId, data, 'chart');
   html += '<div class="table-responsive" style="height:calc(100vh - 8rem); display:flex; flex-direction:column;">';
   html += '<table class="table table-bordered" style="width:100%; table-layout:fixed; flex:1;">';
   html += '<thead><tr><th style="background:' + data.theme.tableHeader + '; color:#fff; width:9rem;"></th>';
@@ -992,7 +1031,8 @@ function renderDutchCharts(containerId, data) {
 
   var groups = ['Weak: werken', 'Strong: schrijven', 'Irreg: zijn'];
 
-  var html = '<h1 style="color:' + data.theme.primary + ';">' + esc(data.title.replace('Conjugations', 'Chart')) + '</h1>';
+  var langId = containerId.replace('-chart', '');
+  var html = renderPageHeader(langId, data, 'chart');
   html += '<div class="table-responsive" style="height:calc(100vh - 8rem); display:flex; flex-direction:column;">';
   html += '<table class="table table-bordered" style="width:100%; table-layout:fixed; flex:1;">';
   html += '<thead><tr><th style="background:' + data.theme.tableHeader + '; color:#fff; width:9rem;"></th>';
@@ -1072,7 +1112,8 @@ function renderCzechCharts(containerId, data) {
 
   var groups = ['-e: nést', '-je: kupovat', '-í: prosit'];
 
-  var html = '<h1 style="color:' + data.theme.primary + ';">' + esc(data.title.replace('Conjugations', 'Chart')) + '</h1>';
+  var langId = containerId.replace('-chart', '');
+  var html = renderPageHeader(langId, data, 'chart');
   html += '<div class="table-responsive" style="height:calc(100vh - 8rem); display:flex; flex-direction:column;">';
   html += '<table class="table table-bordered" style="width:100%; table-layout:fixed; flex:1;">';
   html += '<thead><tr><th style="background:' + data.theme.tableHeader + '; color:#fff; width:9rem;"></th>';

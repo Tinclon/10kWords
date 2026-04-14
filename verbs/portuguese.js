@@ -1,6 +1,6 @@
 var portugueseData = {
   "language": "Portuguese",
-  "title": "Portuguese Verb Conjugations",
+  "title": "Portuguese Verbs",
   "theme": {
     "primary": "#388e5e",
     "secondary": "#2c6e49",
