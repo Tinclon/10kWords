@@ -22,9 +22,10 @@
   .info-box p { margin-bottom: 0.4rem; }
   .lang-page { position: relative; }
   @media (max-width: 1399px) { .info-box { position: static; width: 100%; margin-bottom: 1rem; } }
+  html { background: #212529; }
   html, body { height: 100%; overflow: hidden; }
   body { display: flex; }
-  nav { flex-shrink: 0; overflow-y: auto; }
+  nav { flex-shrink: 0; overflow-y: auto; padding-left: env(safe-area-inset-left); }
   .main-content { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-right: env(safe-area-inset-right); background: #fff; }
   .col-selector { display: none; }
   @media (max-width: 991px), (max-height: 500px) {
