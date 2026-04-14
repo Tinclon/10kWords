@@ -10482,5 +10482,59 @@ var frenchData = {
       "key": "imperative",
       "description": "Gives commands, instructions, or requests directly."
     }
-  ]
+  ],
+  "chart": {
+    "columns": ["Past (Passé)", "Present (Présent)", "Future (Futur)", "Conditional (Conditionnel)"],
+    "rows": ["Simple (Simple)", "Compound (Composé)", "Imperfect (Imparfait)", "Pluperfect (Plus-que-parfait)"],
+    "groups": ["-er: marcher", "-ir: finir", "-re: vendre"],
+    "cells": [
+      [
+        { "form": "Passé simple", "rule": "Stem + endings",
+          "er": [["je marchai", "n. marchâmes"], ["tu marchas", "v. marchâtes"], ["il marcha", "ils marchèrent"]],
+          "ir": [["je finis", "n. finîmes"], ["tu finis", "v. finîtes"], ["il finit", "ils finirent"]],
+          "re": [["je vendis", "n. vendîmes"], ["tu vendis", "v. vendîtes"], ["il vendit", "ils vendirent"]] },
+        { "form": "Présent", "rule": "Stem + endings",
+          "er": [["je marche", "n. marchons"], ["tu marches", "v. marchez"], ["il marche", "ils marchent"]],
+          "ir": [["je finis", "n. finissons"], ["tu finis", "v. finissez"], ["il finit", "ils finissent"]],
+          "re": [["je vends", "n. vendons"], ["tu vends", "v. vendez"], ["il vend", "ils vendent"]] },
+        { "form": "Futur simple", "rule": "Inf. + endings",
+          "er": [["je marcherai", "n. marcherons"], ["tu marcheras", "v. marcherez"], ["il marchera", "ils marcheront"]],
+          "ir": [["je finirai", "n. finirons"], ["tu finiras", "v. finirez"], ["il finira", "ils finiront"]],
+          "re": [["je vendrai", "n. vendrons"], ["tu vendras", "v. vendrez"], ["il vendra", "ils vendront"]] },
+        { "form": "Cond. présent", "rule": "Inf. + imp. endings",
+          "er": [["je marcherais", "n. marcherions"], ["tu marcherais", "v. marcheriez"], ["il marcherait", "ils marcheraient"]],
+          "ir": [["je finirais", "n. finirions"], ["tu finirais", "v. finiriez"], ["il finirait", "ils finiraient"]],
+          "re": [["je vendrais", "n. vendrions"], ["tu vendrais", "v. vendriez"], ["il vendrait", "ils vendraient"]] }
+      ],
+      [
+        { "form": "Passé composé", "rule": "Pres. avoir + p.p.",
+          "er": [["j'ai marché", "n. avons marché"], ["tu as marché", "v. avez marché"], ["il a marché", "ils ont marché"]],
+          "ir": [["j'ai fini", "n. avons fini"], ["tu as fini", "v. avez fini"], ["il a fini", "ils ont fini"]],
+          "re": [["j'ai vendu", "n. avons vendu"], ["tu as vendu", "v. avez vendu"], ["il a vendu", "ils ont vendu"]] },
+        null,
+        { "form": "Futur antérieur", "rule": "Fut. avoir + p.p.",
+          "er": [["j'aurai marché", "n. aurons marché"], ["tu auras marché", "v. aurez marché"], ["il aura marché", "ils auront marché"]],
+          "ir": [["j'aurai fini", "n. aurons fini"], ["tu auras fini", "v. aurez fini"], ["il aura fini", "ils auront fini"]],
+          "re": [["j'aurai vendu", "n. aurons vendu"], ["tu auras vendu", "v. aurez vendu"], ["il aura vendu", "ils auront vendu"]] },
+        { "form": "Cond. passé", "rule": "Cond. avoir + p.p.",
+          "er": [["j'aurais marché", "n. aurions marché"], ["tu aurais marché", "v. auriez marché"], ["il aurait marché", "ils auraient marché"]],
+          "ir": [["j'aurais fini", "n. aurions fini"], ["tu aurais fini", "v. auriez fini"], ["il aurait fini", "ils auraient fini"]],
+          "re": [["j'aurais vendu", "n. aurions vendu"], ["tu aurais vendu", "v. auriez vendu"], ["il aurait vendu", "ils auraient vendu"]] }
+      ],
+      [
+        { "form": "Imparfait", "rule": "Nous-stem + endings",
+          "er": [["je marchais", "n. marchions"], ["tu marchais", "v. marchiez"], ["il marchait", "ils marchaient"]],
+          "ir": [["je finissais", "n. finissions"], ["tu finissais", "v. finissiez"], ["il finissait", "ils finissaient"]],
+          "re": [["je vendais", "n. vendions"], ["tu vendais", "v. vendiez"], ["il vendait", "ils vendaient"]] },
+        null, null, null
+      ],
+      [
+        { "form": "Plus-que-parfait", "rule": "Imp. avoir + p.p.",
+          "er": [["j'avais marché", "n. avions marché"], ["tu avais marché", "v. aviez marché"], ["il avait marché", "ils avaient marché"]],
+          "ir": [["j'avais fini", "n. avions fini"], ["tu avais fini", "v. aviez fini"], ["il avait fini", "ils avaient fini"]],
+          "re": [["j'avais vendu", "n. avions vendu"], ["tu avais vendu", "v. aviez vendu"], ["il avait vendu", "ils avaient vendu"]] },
+        null, null, null
+      ]
+    ]
+  }
 };

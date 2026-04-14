@@ -2184,5 +2184,84 @@ var englishData = {
       ],
       "description": "Gives direct commands, instructions, or requests."
     }
+  },
+  "chart": {
+    "columns": ["Past", "Present", "Future", "Conditional"],
+    "rows": ["Simple", "Perfect", "Continuous", "Perfect Continuous"],
+    "groups": ["Regular: walk", "Irregular: go", "Modal: can"],
+    "cells": [
+      [
+        { "form": "Past Simple", "rule": "verb-ed / irregular",
+          "er": [["I walked", "we walked"], ["you walked", "you walked"], ["he walked", "they walked"]],
+          "ir": [["I went", "we went"], ["you went", "you went"], ["he went", "they went"]],
+          "re": [["I could", "we could"], ["you could", "you could"], ["he could", "they could"]] },
+        { "form": "Present Simple", "rule": "verb / verb-s",
+          "er": [["I walk", "we walk"], ["you walk", "you walk"], ["he walks", "they walk"]],
+          "ir": [["I go", "we go"], ["you go", "you go"], ["he goes", "they go"]],
+          "re": [["I can", "we can"], ["you can", "you can"], ["he can", "they can"]] },
+        { "form": "Future Simple", "rule": "will + verb",
+          "er": [["I will walk", "we will walk"], ["you will walk", "you will walk"], ["he will walk", "they will walk"]],
+          "ir": [["I will go", "we will go"], ["you will go", "you will go"], ["he will go", "they will go"]],
+          "re": [["I will be able", "we will be able"], ["you will be able", "you will be able"], ["he will be able", "they will be able"]] },
+        { "form": "Conditional", "rule": "would + verb",
+          "er": [["I would walk", "we would walk"], ["you would walk", "you would walk"], ["he would walk", "they would walk"]],
+          "ir": [["I would go", "we would go"], ["you would go", "you would go"], ["he would go", "they would go"]],
+          "re": [["I could", "we could"], ["you could", "you could"], ["he could", "they could"]] }
+      ],
+      [
+        { "form": "Past Perfect", "rule": "had + past participle",
+          "er": [["I had walked", "we had walked"], ["you had walked", "you had walked"], ["he had walked", "they had walked"]],
+          "ir": [["I had gone", "we had gone"], ["you had gone", "you had gone"], ["he had gone", "they had gone"]],
+          "re": [["I had been able", "we had been able"], ["you had been able", "you had been able"], ["he had been able", "they had been able"]] },
+        { "form": "Present Perfect", "rule": "have/has + past participle",
+          "er": [["I have walked", "we have walked"], ["you have walked", "you have walked"], ["he has walked", "they have walked"]],
+          "ir": [["I have gone", "we have gone"], ["you have gone", "you have gone"], ["he has gone", "they have gone"]],
+          "re": [["I have been able", "we have been able"], ["you have been able", "you have been able"], ["he has been able", "they have been able"]] },
+        { "form": "Future Perfect", "rule": "will have + past participle",
+          "er": [["I will have walked", "we will have walked"], ["you will have walked", "you will have walked"], ["he will have walked", "they will have walked"]],
+          "ir": [["I will have gone", "we will have gone"], ["you will have gone", "you will have gone"], ["he will have gone", "they will have gone"]],
+          "re": [["I will have been able", "we will have been able"], ["you will have been able", "you will have been able"], ["he will have been able", "they will have been able"]] },
+        { "form": "Cond. Perfect", "rule": "would have + past participle",
+          "er": [["I would have walked", "we would have walked"], ["you would have walked", "you would have walked"], ["he would have walked", "they would have walked"]],
+          "ir": [["I would have gone", "we would have gone"], ["you would have gone", "you would have gone"], ["he would have gone", "they would have gone"]],
+          "re": [["I would have been able", "we would have been able"], ["you would have been able", "you would have been able"], ["he would have been able", "they would have been able"]] }
+      ],
+      [
+        { "form": "Past Continuous", "rule": "was/were + verb-ing",
+          "er": [["I was walking", "we were walking"], ["you were walking", "you were walking"], ["he was walking", "they were walking"]],
+          "ir": [["I was going", "we were going"], ["you were going", "you were going"], ["he was going", "they were going"]],
+          "re": null },
+        { "form": "Present Continuous", "rule": "am/is/are + verb-ing",
+          "er": [["I am walking", "we are walking"], ["you are walking", "you are walking"], ["he is walking", "they are walking"]],
+          "ir": [["I am going", "we are going"], ["you are going", "you are going"], ["he is going", "they are going"]],
+          "re": null },
+        { "form": "Future Continuous", "rule": "will be + verb-ing",
+          "er": [["I will be walking", "we will be walking"], ["you will be walking", "you will be walking"], ["he will be walking", "they will be walking"]],
+          "ir": [["I will be going", "we will be going"], ["you will be going", "you will be going"], ["he will be going", "they will be going"]],
+          "re": null },
+        { "form": "Cond. Continuous", "rule": "would be + verb-ing",
+          "er": [["I would be walking", "we would be walking"], ["you would be walking", "you would be walking"], ["he would be walking", "they would be walking"]],
+          "ir": [["I would be going", "we would be going"], ["you would be going", "you would be going"], ["he would be going", "they would be going"]],
+          "re": null }
+      ],
+      [
+        { "form": "Past Perf. Cont.", "rule": "had been + verb-ing",
+          "er": [["I had been walking", "we had been walking"], ["you had been walking", "you had been walking"], ["he had been walking", "they had been walking"]],
+          "ir": [["I had been going", "we had been going"], ["you had been going", "you had been going"], ["he had been going", "they had been going"]],
+          "re": null },
+        { "form": "Pres. Perf. Cont.", "rule": "have/has been + verb-ing",
+          "er": [["I have been walking", "we have been walking"], ["you have been walking", "you have been walking"], ["he has been walking", "they have been walking"]],
+          "ir": [["I have been going", "we have been going"], ["you have been going", "you have been going"], ["he has been going", "they have been going"]],
+          "re": null },
+        { "form": "Fut. Perf. Cont.", "rule": "will have been + verb-ing",
+          "er": [["I will have been walking", "we will have been walking"], ["you will have been walking", "you will have been walking"], ["he will have been walking", "they will have been walking"]],
+          "ir": [["I will have been going", "we will have been going"], ["you will have been going", "you will have been going"], ["he will have been going", "they will have been going"]],
+          "re": null },
+        { "form": "Cond. Perf. Cont.", "rule": "would have been + verb-ing",
+          "er": [["I would have been walking", "we would have been walking"], ["you would have been walking", "you would have been walking"], ["he would have been walking", "they would have been walking"]],
+          "ir": [["I would have been going", "we would have been going"], ["you would have been going", "you would have been going"], ["he would have been going", "they would have been going"]],
+          "re": null }
+      ]
+    ]
   }
 };

@@ -771,5 +771,48 @@ var dutchData = {
         }
       ]
     }
+  },
+  "chart": {
+    "columns": ["Past (Verleden)", "Present (Tegenwoordig)", "Future (Toekomend)", "Conditional (Voorwaardelijk)"],
+    "rows": ["Simple (Onvoltooid)", "Perfect (Voltooid)"],
+    "groups": ["Weak: werken", "Strong: schrijven", "Irreg: zijn"],
+    "cells": [
+      [
+        { "form": "Onvoltooid verleden", "rule": "Weak: stem+-te/-de; Strong: vowel change",
+          "er": [["ik werkte", "wij werkten"], ["jij werkte", "jullie werkten"], ["hij werkte", "zij werkten"]],
+          "ir": [["ik schreef", "wij schreven"], ["jij schreef", "jullie schreven"], ["hij schreef", "zij schreven"]],
+          "re": [["ik was", "wij waren"], ["jij was", "jullie waren"], ["hij was", "zij waren"]] },
+        { "form": "Onvoltooid tegenwoordig", "rule": "Stem + personal endings",
+          "er": [["ik werk", "wij werken"], ["jij werkt", "jullie werken"], ["hij werkt", "zij werken"]],
+          "ir": [["ik schrijf", "wij schrijven"], ["jij schrijft", "jullie schrijven"], ["hij schrijft", "zij schrijven"]],
+          "re": [["ik ben", "wij zijn"], ["jij bent", "jullie zijn"], ["hij is", "zij zijn"]] },
+        { "form": "Onvoltooid toekomend", "rule": "zullen + infinitive",
+          "er": [["ik zal werken", "wij zullen werken"], ["jij zult werken", "jullie zullen werken"], ["hij zal werken", "zij zullen werken"]],
+          "ir": [["ik zal schrijven", "wij zullen schrijven"], ["jij zult schrijven", "jullie zullen schrijven"], ["hij zal schrijven", "zij zullen schrijven"]],
+          "re": [["ik zal zijn", "wij zullen zijn"], ["jij zult zijn", "jullie zullen zijn"], ["hij zal zijn", "zij zullen zijn"]] },
+        { "form": "Voorwaardelijk", "rule": "zou/zouden + infinitive",
+          "er": [["ik zou werken", "wij zouden werken"], ["jij zou werken", "jullie zouden werken"], ["hij zou werken", "zij zouden werken"]],
+          "ir": [["ik zou schrijven", "wij zouden schrijven"], ["jij zou schrijven", "jullie zouden schrijven"], ["hij zou schrijven", "zij zouden schrijven"]],
+          "re": [["ik zou zijn", "wij zouden zijn"], ["jij zou zijn", "jullie zouden zijn"], ["hij zou zijn", "zij zouden zijn"]] }
+      ],
+      [
+        { "form": "Voltooid verleden", "rule": "had/was + past participle",
+          "er": [["ik had gewerkt", "wij hadden gewerkt"], ["jij had gewerkt", "jullie hadden gewerkt"], ["hij had gewerkt", "zij hadden gewerkt"]],
+          "ir": [["ik had geschreven", "wij hadden geschreven"], ["jij had geschreven", "jullie hadden geschreven"], ["hij had geschreven", "zij hadden geschreven"]],
+          "re": [["ik was geweest", "wij waren geweest"], ["jij was geweest", "jullie waren geweest"], ["hij was geweest", "zij waren geweest"]] },
+        { "form": "Voltooid tegenwoordig", "rule": "heb/ben + past participle",
+          "er": [["ik heb gewerkt", "wij hebben gewerkt"], ["jij hebt gewerkt", "jullie hebben gewerkt"], ["hij heeft gewerkt", "zij hebben gewerkt"]],
+          "ir": [["ik heb geschreven", "wij hebben geschreven"], ["jij hebt geschreven", "jullie hebben geschreven"], ["hij heeft geschreven", "zij hebben geschreven"]],
+          "re": [["ik ben geweest", "wij zijn geweest"], ["jij bent geweest", "jullie zijn geweest"], ["hij is geweest", "zij zijn geweest"]] },
+        { "form": "Voltooid toekomend", "rule": "zullen + p.p. + hebben/zijn",
+          "er": [["ik zal gewerkt hebben", "wij zullen gewerkt hebben"], ["jij zult gewerkt hebben", "jullie zullen gewerkt hebben"], ["hij zal gewerkt hebben", "zij zullen gewerkt hebben"]],
+          "ir": [["ik zal geschreven hebben", "wij zullen geschreven hebben"], ["jij zult geschreven hebben", "jullie zullen geschreven hebben"], ["hij zal geschreven hebben", "zij zullen geschreven hebben"]],
+          "re": [["ik zal geweest zijn", "wij zullen geweest zijn"], ["jij zult geweest zijn", "jullie zullen geweest zijn"], ["hij zal geweest zijn", "zij zullen geweest zijn"]] },
+        { "form": "Voorw. voltooid", "rule": "zou + p.p. + hebben/zijn",
+          "er": [["ik zou gewerkt hebben", "wij zouden gewerkt hebben"], ["jij zou gewerkt hebben", "jullie zouden gewerkt hebben"], ["hij zou gewerkt hebben", "zij zouden gewerkt hebben"]],
+          "ir": [["ik zou geschreven hebben", "wij zouden geschreven hebben"], ["jij zou geschreven hebben", "jullie zouden geschreven hebben"], ["hij zou geschreven hebben", "zij zouden geschreven hebben"]],
+          "re": [["ik zou geweest zijn", "wij zouden geweest zijn"], ["jij zou geweest zijn", "jullie zouden geweest zijn"], ["hij zou geweest zijn", "zij zouden geweest zijn"]] }
+      ]
+    ]
   }
 };

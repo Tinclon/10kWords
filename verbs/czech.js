@@ -2469,5 +2469,37 @@ var czechData = {
       "key": "imperative",
       "description": "Gives commands, instructions, or requests directly."
     }
-  ]
+  ],
+  "chart": {
+    "columns": ["Past (Minulý)", "Present (Přítomný)", "Future (Budoucí)", "Conditional (Podmiňovací)"],
+    "rows": ["Indicative", "Past Conditional"],
+    "groups": ["-e: nést", "-je: kupovat", "-í: prosit"],
+    "cells": [
+      [
+        { "form": "Minulý čas", "rule": "Past participle + být aux.",
+          "er": [["nesl jsem", "nesli jsme"], ["nesl jsi", "nesli jste"], ["nesl", "nesli"]],
+          "ir": [["kupoval jsem", "kupovali jsme"], ["kupoval jsi", "kupovali jste"], ["kupoval", "kupovali"]],
+          "re": [["prosil jsem", "prosili jsme"], ["prosil jsi", "prosili jste"], ["prosil", "prosili"]] },
+        { "form": "Přítomný čas", "rule": "Stem + personal endings",
+          "er": [["nesu", "neseme"], ["neseš", "nesete"], ["nese", "nesou"]],
+          "ir": [["kupuju", "kupujeme"], ["kupuješ", "kupujete"], ["kupuje", "kupují"]],
+          "re": [["prosím", "prosíme"], ["prosíš", "prosíte"], ["prosí", "prosí"]] },
+        { "form": "Budoucí čas", "rule": "budu + infinitive (imperf.)",
+          "er": [["budu nést", "budeme nést"], ["budeš nést", "budete nést"], ["bude nést", "budou nést"]],
+          "ir": [["budu kupovat", "budeme kupovat"], ["budeš kupovat", "budete kupovat"], ["bude kupovat", "budou kupovat"]],
+          "re": [["budu prosit", "budeme prosit"], ["budeš prosit", "budete prosit"], ["bude prosit", "budou prosit"]] },
+        { "form": "Podm. přítomný", "rule": "Past participle + bych/bys/by...",
+          "er": [["nesl bych", "nesli bychom"], ["nesl bys", "nesli byste"], ["nesl by", "nesli by"]],
+          "ir": [["kupoval bych", "kupovali bychom"], ["kupoval bys", "kupovali byste"], ["kupoval by", "kupovali by"]],
+          "re": [["prosil bych", "prosili bychom"], ["prosil bys", "prosili byste"], ["prosil by", "prosili by"]] }
+      ],
+      [
+        null, null, null,
+        { "form": "Podm. minulý", "rule": "Past part. + byl + bych/bys/by...",
+          "er": [["byl bych nesl", "byli bychom nesli"], ["byl bys nesl", "byli byste nesli"], ["byl by nesl", "byli by nesli"]],
+          "ir": [["byl bych kupoval", "byli bychom kupovali"], ["byl bys kupoval", "byli byste kupovali"], ["byl by kupoval", "byli by kupovali"]],
+          "re": [["byl bych prosil", "byli bychom prosili"], ["byl bys prosil", "byli byste prosili"], ["byl by prosil", "byli by prosili"]] }
+      ]
+    ]
+  }
 };
