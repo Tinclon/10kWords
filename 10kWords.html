@@ -21,16 +21,15 @@
   .mood-toggle .btn { font-size: 0.85rem; }
   .mood-toggle { margin-bottom: 1rem; }
   .regular-example { background: #f0f4f8; border-radius: 0.4rem; padding: 0.8rem; margin-bottom: 1.5rem; border-left: 3px solid #aaa; }
-  .info-box { font-size: 0.82rem; position: absolute; top: -1rem; right: 0; width: 620px; border-width: 2px !important; }
+  .info-box { font-size: 0.82rem; position: absolute; top: -1rem; right: 0; width: 620px; max-width: calc(100vw - 180px - 6rem); border-width: 2px !important; }
   .info-box .card-body { padding: 0.8rem; }
   .info-box h6 { font-size: 0.85rem; margin-bottom: 0.3rem; }
   .info-box p { margin-bottom: 0.4rem; }
   .lang-page { position: relative; }
   @media (max-width: 1399px) { .info-box { position: static; width: 100%; margin-bottom: 1rem; } }
-  html, body { height: 100dvh; overflow: hidden; margin: 0; padding: 0; }
-  body { display: flex; width: 100vw; }
-  nav { flex-shrink: 0; overflow-y: auto; }
-  .main-content { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; background: #fff; }
+  html, body { height: 100dvh; width: 100vw; overflow: hidden; margin: 0; padding: 0; }
+  nav { position: fixed; left: 0; top: 0; bottom: 0; width: 180px; overflow-y: auto; }
+  .main-content { position: fixed; left: 180px; top: 0; right: 0; bottom: 0; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; background: #fff; }
   .group-divider { display: none; width: 80%; margin: 0.4rem auto; border-top: 2px solid rgba(255,255,255,0.9); }
   .col-selector { display: none; }
   @media (max-width: 991px), (max-height: 500px) {
@@ -42,13 +41,13 @@
     nav .group-divider { display: block !important; }
     nav .nav-link { padding: 0.15rem; font-size: 0.9rem; text-align: center; }
     nav .nav-link.active { background: rgba(255,255,255,0.15) !important; border-radius: 0.3rem; }
-    .main-content { margin-left: 0 !important; }
+    .main-content { left: 36px !important; }
   }
 </style>
 </head>
-<body class="d-flex">
+<body>
 
-<nav class="bg-dark text-light pt-4" style="width:180px; padding-left:1rem; padding-right:1rem;">
+<nav class="bg-dark text-light pt-4" style="padding-left:1rem; padding-right:1rem;">
 <h6 class="text-light mb-3 sidebar-label">Languages</h6>
 <div class="nav flex-column nav-pills">
 <small class="text-light d-block mt-2 mb-1 sidebar-label">Germanic</small>
@@ -62,8 +61,8 @@
 </div>
 </nav>
 
-<div class="container-fluid px-5 pt-5 pb-4 main-content" style="position:relative;">
-<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v3.4 - no safe areas</small>
+<div class="px-5 pt-5 pb-4 main-content" style="position:relative;">
+<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v4.0 - position fixed edge-to-edge</small>
 
 <div id="english" class="lang-page"></div>
 <div id="french" class="lang-page d-none"></div>
