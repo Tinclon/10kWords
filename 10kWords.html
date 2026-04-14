@@ -60,12 +60,25 @@
 <div class="nav flex-column nav-pills">
 <small class="text-light d-block mt-2 mb-1 sidebar-label">Germanic</small>
 <a class="nav-link text-light active" href="#" onclick="switchLang('english', this); return false;">🇬🇧<span class="sidebar-label"> English</span></a>
+<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('english', 'conjugation', this); return false;" style="font-size:0.8rem;"><i class="bi bi-table"></i><span class="sidebar-label"> Conjugation</span></a>
+<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('english', 'chart', this); return false;" style="font-size:0.8rem;"><i class="bi bi-grid-3x3"></i><span class="sidebar-label"> Chart</span></a>
+<a class="nav-link text-light" href="#" onclick="switchLang('dutch', this); return false;">🇳🇱<span class="sidebar-label"> Dutch</span></a>
+<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('dutch', 'conjugation', this); return false;" style="font-size:0.8rem;"><i class="bi bi-table"></i><span class="sidebar-label"> Conjugation</span></a>
+<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('dutch', 'chart', this); return false;" style="font-size:0.8rem;"><i class="bi bi-grid-3x3"></i><span class="sidebar-label"> Chart</span></a>
 <hr class="group-divider"><small class="text-light d-block mt-3 mb-1 sidebar-label">Romance</small>
 <a class="nav-link text-light" href="#" onclick="switchLang('french', this); return false;">🇫🇷<span class="sidebar-label"> French</span></a>
+<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('french', 'conjugation', this); return false;" style="font-size:0.8rem;"><i class="bi bi-table"></i><span class="sidebar-label"> Conjugation</span></a>
+<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('french', 'chart', this); return false;" style="font-size:0.8rem;"><i class="bi bi-grid-3x3"></i><span class="sidebar-label"> Chart</span></a>
 <a class="nav-link text-light" href="#" onclick="switchLang('spanish', this); return false;">🇪🇸<span class="sidebar-label"> Spanish</span></a>
+<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('spanish', 'conjugation', this); return false;" style="font-size:0.8rem;"><i class="bi bi-table"></i><span class="sidebar-label"> Conjugation</span></a>
+<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('spanish', 'chart', this); return false;" style="font-size:0.8rem;"><i class="bi bi-grid-3x3"></i><span class="sidebar-label"> Chart</span></a>
 <a class="nav-link text-light" href="#" onclick="switchLang('portuguese', this); return false;">🇧🇷<span class="sidebar-label"> Portuguese</span></a>
+<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('portuguese', 'conjugation', this); return false;" style="font-size:0.8rem;"><i class="bi bi-table"></i><span class="sidebar-label"> Conjugation</span></a>
+<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('portuguese', 'chart', this); return false;" style="font-size:0.8rem;"><i class="bi bi-grid-3x3"></i><span class="sidebar-label"> Chart</span></a>
 <hr class="group-divider"><small class="text-light d-block mt-3 mb-1 sidebar-label">Slavic</small>
 <a class="nav-link text-light" href="#" onclick="switchLang('czech', this); return false;">🇨🇿<span class="sidebar-label"> Czech</span></a>
+<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('czech', 'conjugation', this); return false;" style="font-size:0.8rem;"><i class="bi bi-table"></i><span class="sidebar-label"> Conjugation</span></a>
+<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('czech', 'chart', this); return false;" style="font-size:0.8rem;"><i class="bi bi-grid-3x3"></i><span class="sidebar-label"> Chart</span></a>
 </div>
 </nav>
 
@@ -73,16 +86,24 @@
 <small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v6.0</small>
 
 <div id="english" class="lang-page"></div>
+<div id="english-chart" class="lang-page d-none"></div>
+<div id="dutch" class="lang-page d-none"></div>
+<div id="dutch-chart" class="lang-page d-none"></div>
 <div id="french" class="lang-page d-none"></div>
+<div id="french-chart" class="lang-page d-none"></div>
 <div id="spanish" class="lang-page d-none"></div>
+<div id="spanish-chart" class="lang-page d-none"></div>
 <div id="portuguese" class="lang-page d-none"></div>
+<div id="portuguese-chart" class="lang-page d-none"></div>
 <div id="czech" class="lang-page d-none"></div>
+<div id="czech-chart" class="lang-page d-none"></div>
 
 </div>
 
 <script src="verbs/french.js"></script>
 <script src="verbs/spanish.js"></script>
 <script src="verbs/english.js"></script>
+<script src="verbs/dutch.js"></script>
 <script src="verbs/portuguese.js"></script>
 <script src="verbs/czech.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
