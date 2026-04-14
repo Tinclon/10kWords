@@ -70,7 +70,7 @@
 </nav>
 
 <div class="px-5 pt-5 pb-4 main-content">
-<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v5.3</small>
+<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v5.4</small>
 
 <div id="english" class="lang-page"></div>
 <div id="french" class="lang-page d-none"></div>
@@ -416,6 +416,8 @@ renderLanguage('czech', czechData);
 if (window.navigator.standalone) document.documentElement.classList.add('standalone');
 
 (function() {
+  var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (!isIOS) return;
   function detectNotchSide() {
     var type = (screen.orientation || {}).type || '';
     document.body.classList.toggle('notch-left', type === 'landscape-primary');
