@@ -1,6 +1,6 @@
 var frenchData = {
   "language": "French",
-  "title": "French Verb Conjugations",
+  "title": "French Verbs",
   "theme": {
     "primary": "#c62828",
     "secondary": "#b71c1c",

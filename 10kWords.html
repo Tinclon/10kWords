@@ -40,6 +40,7 @@
   .col-selector { display: none; }
   @media (max-width: 991px), (max-height: 500px) {
     .col-selector { display: flex; }
+    .col-header { display: none !important; }
     .verb-col { display: none; }
     .verb-col.col-active { display: block; width: 100%; flex: 0 0 100%; max-width: 100%; }
     nav { width: 36px !important; min-width: 36px !important; max-width: 36px !important; padding: 0.2rem !important; padding-top: 0.6rem !important; overflow: hidden; }
@@ -60,30 +61,19 @@
 <div class="nav flex-column nav-pills">
 <small class="text-light d-block mt-2 mb-1 sidebar-label">Germanic</small>
 <a class="nav-link text-light active" href="#" onclick="switchLang('english', this); return false;">🇬🇧<span class="sidebar-label"> English</span></a>
-<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('english', 'conjugation', this); return false;" style="font-size:0.8rem;"><i class="bi bi-table"></i><span class="sidebar-label"> Conjugation</span></a>
-<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('english', 'chart', this); return false;" style="font-size:0.8rem;"><i class="bi bi-grid-3x3"></i><span class="sidebar-label"> Chart</span></a>
+
 <a class="nav-link text-light" href="#" onclick="switchLang('dutch', this); return false;">🇳🇱<span class="sidebar-label"> Dutch</span></a>
-<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('dutch', 'conjugation', this); return false;" style="font-size:0.8rem;"><i class="bi bi-table"></i><span class="sidebar-label"> Conjugation</span></a>
-<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('dutch', 'chart', this); return false;" style="font-size:0.8rem;"><i class="bi bi-grid-3x3"></i><span class="sidebar-label"> Chart</span></a>
 <hr class="group-divider"><small class="text-light d-block mt-3 mb-1 sidebar-label">Romance</small>
 <a class="nav-link text-light" href="#" onclick="switchLang('french', this); return false;">🇫🇷<span class="sidebar-label"> French</span></a>
-<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('french', 'conjugation', this); return false;" style="font-size:0.8rem;"><i class="bi bi-table"></i><span class="sidebar-label"> Conjugation</span></a>
-<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('french', 'chart', this); return false;" style="font-size:0.8rem;"><i class="bi bi-grid-3x3"></i><span class="sidebar-label"> Chart</span></a>
 <a class="nav-link text-light" href="#" onclick="switchLang('spanish', this); return false;">🇪🇸<span class="sidebar-label"> Spanish</span></a>
-<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('spanish', 'conjugation', this); return false;" style="font-size:0.8rem;"><i class="bi bi-table"></i><span class="sidebar-label"> Conjugation</span></a>
-<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('spanish', 'chart', this); return false;" style="font-size:0.8rem;"><i class="bi bi-grid-3x3"></i><span class="sidebar-label"> Chart</span></a>
 <a class="nav-link text-light" href="#" onclick="switchLang('portuguese', this); return false;">🇧🇷<span class="sidebar-label"> Portuguese</span></a>
-<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('portuguese', 'conjugation', this); return false;" style="font-size:0.8rem;"><i class="bi bi-table"></i><span class="sidebar-label"> Conjugation</span></a>
-<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('portuguese', 'chart', this); return false;" style="font-size:0.8rem;"><i class="bi bi-grid-3x3"></i><span class="sidebar-label"> Chart</span></a>
 <hr class="group-divider"><small class="text-light d-block mt-3 mb-1 sidebar-label">Slavic</small>
 <a class="nav-link text-light" href="#" onclick="switchLang('czech', this); return false;">🇨🇿<span class="sidebar-label"> Czech</span></a>
-<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('czech', 'conjugation', this); return false;" style="font-size:0.8rem;"><i class="bi bi-table"></i><span class="sidebar-label"> Conjugation</span></a>
-<a class="nav-link text-light ps-4 py-0" href="#" onclick="switchPage('czech', 'chart', this); return false;" style="font-size:0.8rem;"><i class="bi bi-grid-3x3"></i><span class="sidebar-label"> Chart</span></a>
 </div>
 </nav>
 
 <div class="px-5 pt-5 pb-4 main-content">
-<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v6.0</small>
+<small class="text-muted" style="font-size:0.6rem; position:absolute; top:0.3rem; left:0.5rem;">v7.0</small>
 
 <div id="english" class="lang-page"></div>
 <div id="english-chart" class="lang-page d-none"></div>

@@ -1,6 +1,6 @@
 var englishData = {
   "language": "English",
-  "title": "English Verb Conjugations",
+  "title": "English Verbs",
   "theme": {
     "primary": "#1b5e20",
     "secondary": "#134016",

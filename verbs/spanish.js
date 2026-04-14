@@ -1,6 +1,6 @@
 var spanishData = {
   "language": "Spanish",
-  "title": "Spanish Verb Conjugations",
+  "title": "Spanish Verbs",
   "theme": {
     "primary": "#b03060",
     "secondary": "#993366",

@@ -1,6 +1,6 @@
 var dutchData = {
   "language": "Dutch",
-  "title": "Dutch Verb Conjugations",
+  "title": "Dutch Verbs",
   "theme": {
     "primary": "#e65100",
     "secondary": "#bf360c",
