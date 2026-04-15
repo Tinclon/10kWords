@@ -4,7 +4,8 @@ var dutchData = {
   "pages": [
     { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
     { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
-    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" },
+    { "key": "pronouns", "icon": "bi-person", "label": "Pronouns" }
   ],
   "theme": {
     "primary": "#e65100",
@@ -786,6 +787,63 @@ var dutchData = {
     { "rule": "Latin/Greek plurals", "singular": "museum", "plural": "musea", "examples": "centrum→centra, datum→data, stadium→stadia" },
     { "rule": "Irregular", "singular": "kind", "plural": "kinderen", "examples": "ei→eieren, stad→steden, lid→leden, schip→schepen" }
   ],
+  "pronouns": {
+    "categories": [
+      {
+        "name": "Subject Pronouns (Onderwerp)",
+        "headers": ["Person", "Full form", "Reduced form"],
+        "rows": [
+          ["1st sing.", "ik", "'k"],
+          ["2nd sing.", "jij / u", "je"],
+          ["3rd sing. (m)", "hij", "-ie"],
+          ["3rd sing. (f)", "zij", "ze"],
+          ["3rd sing. (n)", "het", "'t"],
+          ["1st pl.", "wij", "we"],
+          ["2nd pl.", "jullie", "—"],
+          ["3rd pl.", "zij", "ze"]
+        ]
+      },
+      {
+        "name": "Object Pronouns (Lijdend voorwerp)",
+        "headers": ["Person", "Full form", "Reduced form"],
+        "rows": [
+          ["1st sing.", "mij", "me"],
+          ["2nd sing.", "jou / u", "je"],
+          ["3rd sing. (m)", "hem", "'m"],
+          ["3rd sing. (f)", "haar", "d'r / ze"],
+          ["3rd sing. (n)", "het", "'t"],
+          ["1st pl.", "ons", "—"],
+          ["2nd pl.", "jullie", "—"],
+          ["3rd pl.", "hen / hun", "ze"]
+        ]
+      },
+      {
+        "name": "Possessive Adjectives (Bezittelijke voornaamwoorden)",
+        "headers": ["Person", "Form"],
+        "rows": [
+          ["1st sing.", "mijn (m'n)"],
+          ["2nd sing.", "jouw (je) / uw"],
+          ["3rd sing. (m)", "zijn (z'n)"],
+          ["3rd sing. (f)", "haar (d'r)"],
+          ["1st pl.", "ons / onze"],
+          ["2nd pl.", "jullie"],
+          ["3rd pl.", "hun"]
+        ]
+      },
+      {
+        "name": "Reflexive Pronouns (Wederkerend)",
+        "headers": ["Person", "Form"],
+        "rows": [
+          ["1st sing.", "me / mezelf"],
+          ["2nd sing.", "je / jezelf / u / uzelf"],
+          ["3rd sing.", "zich / zichzelf"],
+          ["1st pl.", "ons / onszelf"],
+          ["2nd pl.", "je / jezelf / jullie"],
+          ["3rd pl.", "zich / zichzelf"]
+        ]
+      }
+    ]
+  },
   "chart": {
     "columns": ["Past (Verleden)", "Present (Tegenwoordig)", "Future (Toekomend)", "Conditional (Voorwaardelijk)"],
     "rows": ["Simple (Onvoltooid)", "Perfect (Voltooid)"],

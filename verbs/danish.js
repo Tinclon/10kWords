@@ -4,7 +4,8 @@ var danishData = {
   "pages": [
     { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
     { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
-    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" },
+    { "key": "pronouns", "icon": "bi-person", "label": "Pronouns" }
   ],
   "theme": {
     "primary": "#4fc3f7",
@@ -750,6 +751,58 @@ var danishData = {
     { "rule": "Umlaut / vowel change", "singular": "mand", "plural": "mænd", "examples": "gås→gæs, tand→tænder, fod→fødder, mus→mus" },
     { "rule": "Irregular", "singular": "øje", "plural": "øjne", "examples": "øre→ører, ko→køer, bonde→bønder" }
   ],
+  "pronouns": {
+    "categories": [
+      {
+        "name": "Subject Pronouns (Subjektform)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "jeg", "vi"],
+          ["2nd person", "du", "I"],
+          ["3rd person (m)", "han", "de"],
+          ["3rd person (f)", "hun", "de"],
+          ["3rd person (n)", "den / det", "de"]
+        ]
+      },
+      {
+        "name": "Object Pronouns (Objektform)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "mig", "os"],
+          ["2nd person", "dig", "jer"],
+          ["3rd person (m)", "ham", "dem"],
+          ["3rd person (f)", "hende", "dem"],
+          ["3rd person (n)", "den / det", "dem"]
+        ]
+      },
+      {
+        "name": "Possessive Pronouns (Ejestedord)",
+        "headers": ["Person", "Common gender", "Neuter", "Plural"],
+        "rows": [
+          ["1st sing.", "min", "mit", "mine"],
+          ["2nd sing.", "din", "dit", "dine"],
+          ["3rd sing. (m)", "hans", "hans", "hans"],
+          ["3rd sing. (f)", "hendes", "hendes", "hendes"],
+          ["3rd sing. (own)", "sin", "sit", "sine"],
+          ["1st pl.", "vores", "vores", "vores"],
+          ["2nd pl.", "jeres", "jeres", "jeres"],
+          ["3rd pl.", "deres", "deres", "deres"]
+        ]
+      },
+      {
+        "name": "Reflexive Pronouns (Refleksive)",
+        "headers": ["Person", "Form"],
+        "rows": [
+          ["1st sing.", "mig (selv)"],
+          ["2nd sing.", "dig (selv)"],
+          ["3rd sing.", "sig (selv)"],
+          ["1st pl.", "os (selv)"],
+          ["2nd pl.", "jer (selv)"],
+          ["3rd pl.", "sig (selv)"]
+        ]
+      }
+    ]
+  },
   "chart": {
     "info": "<strong>Group 1 (-ede)</strong> vs <strong>Group 2 (-te)</strong>: Group 1 verbs form past tense with <em>-ede</em> and past participle with <em>-et</em> (arbejde → arbejdede / arbejdet). Group 2 verbs use <em>-te</em> and <em>-t</em> (købe → købte / købt). Rule of thumb: stems ending in two+ consonants or unstressed syllables → Group 1; single consonant after stressed vowel → Group 2.",
     "columns": ["Past (Fortid)", "Present (Nutid)", "Future (Fremtid)"],

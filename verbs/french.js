@@ -4,7 +4,8 @@ var frenchData = {
   "pages": [
     { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
     { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
-    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" },
+    { "key": "pronouns", "icon": "bi-person", "label": "Pronouns" }
   ],
   "theme": {
     "primary": "#c62828",
@@ -10500,6 +10501,72 @@ var frenchData = {
     { "rule": "Ends in -s, -x, -z: no change", "singular": "bras", "plural": "bras", "examples": "voix→voix, nez→nez, souris→souris, noix→noix" },
     { "rule": "Irregular", "singular": "œil", "plural": "yeux", "examples": "monsieur→messieurs, madame→mesdames, mademoiselle→mesdemoiselles" }
   ],
+  "pronouns": {
+    "categories": [
+      {
+        "name": "Subject Pronouns (Pronoms sujets)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "je (j')", "nous"],
+          ["2nd person", "tu", "vous"],
+          ["3rd person (m)", "il", "ils"],
+          ["3rd person (f)", "elle", "elles"],
+          ["Indefinite", "on", "—"]
+        ]
+      },
+      {
+        "name": "Direct Object Pronouns (Pronoms COD)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "me (m')", "nous"],
+          ["2nd person", "te (t')", "vous"],
+          ["3rd person (m)", "le (l')", "les"],
+          ["3rd person (f)", "la (l')", "les"]
+        ]
+      },
+      {
+        "name": "Indirect Object Pronouns (Pronoms COI)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "me (m')", "nous"],
+          ["2nd person", "te (t')", "vous"],
+          ["3rd person", "lui", "leur"]
+        ]
+      },
+      {
+        "name": "Stressed / Disjunctive Pronouns (Pronoms toniques)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "moi", "nous"],
+          ["2nd person", "toi", "vous"],
+          ["3rd person (m)", "lui", "eux"],
+          ["3rd person (f)", "elle", "elles"],
+          ["Indefinite", "soi", "—"]
+        ]
+      },
+      {
+        "name": "Possessive Adjectives (Adjectifs possessifs)",
+        "headers": ["Person", "Masc. sing.", "Fem. sing.", "Plural"],
+        "rows": [
+          ["1st sing.", "mon", "ma", "mes"],
+          ["2nd sing.", "ton", "ta", "tes"],
+          ["3rd sing.", "son", "sa", "ses"],
+          ["1st pl.", "notre", "notre", "nos"],
+          ["2nd pl.", "votre", "votre", "vos"],
+          ["3rd pl.", "leur", "leur", "leurs"]
+        ]
+      },
+      {
+        "name": "Reflexive Pronouns (Pronoms réfléchis)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "me (m')", "nous"],
+          ["2nd person", "te (t')", "vous"],
+          ["3rd person", "se (s')", "se (s')"]
+        ]
+      }
+    ]
+  },
   "chart": {
     "columns": ["Past (Passé)", "Present (Présent)", "Future (Futur)", "Conditional (Conditionnel)"],
     "rows": ["Simple (Simple)", "Compound (Composé)", "Imperfect (Imparfait)", "Pluperfect (Plus-que-parfait)"],

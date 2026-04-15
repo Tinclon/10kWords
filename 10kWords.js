@@ -7,23 +7,41 @@ var searchTimers = {};
 // --- Utilities ---
 var defaultPages = [
   { key: 'conjugation', icon: 'bi-table', label: 'Conjugations' },
-  { key: 'chart', icon: 'bi-grid-3x3', label: 'Chart' }
+  { key: 'chart', icon: 'bi-grid-3x3', label: 'Chart' },
+  { key: 'pluralization', icon: 'bi-files', label: 'Pluralization' },
+  { key: 'pronouns', icon: 'bi-person', label: 'Pronouns' }
 ];
+
+var pageTitles = {
+  'conjugation': 'Verb Conjugations',
+  'chart': 'Verb Conjugation Chart',
+  'pluralization': 'Pluralization',
+  'pronouns': 'Pronouns'
+};
 
 function renderPageHeader(langId, data, activePage) {
   var pages = data.pages || defaultPages;
-  var activeLabel = '';
+  var title = data.language + ' ' + (pageTitles[activePage] || activePage);
   var html = '<div class="d-flex align-items-center mb-3 flex-wrap gap-2">';
-  html += '<h1 class="mb-0 me-3" style="color:' + data.theme.primary + ';">' + esc(data.title) + '</h1>';
-  html += '<div class="btn-group btn-group-sm" role="group">';
+  html += '<h1 class="mb-0 me-3" style="color:' + data.theme.primary + ';" id="' + langId + '-page-label">' + esc(title) + '</h1>';
+  var mainPages = [];
+  var extraPages = [];
   for (var i = 0; i < pages.length; i++) {
-    var pg = pages[i];
+    if (pages[i].key === 'conjugation' || pages[i].key === 'chart') mainPages.push(pages[i]);
+    else extraPages.push(pages[i]);
+  }
+  html += '<div class="btn-group btn-group-sm" role="group">';
+  for (var i = 0; i < mainPages.length; i++) {
+    var pg = mainPages[i];
     var active = pg.key === activePage ? ' active' : '';
-    if (pg.key === activePage) activeLabel = pg.label;
     html += '<button type="button" class="btn btn-outline-secondary' + active + '" onclick="switchPage(\'' + langId + '\', \'' + pg.key + '\', this)"><i class="bi ' + pg.icon + '"></i></button>';
   }
   html += '</div>';
-  html += '<span class="mb-0" style="color:' + data.theme.primary + '; font-size:1.2rem; font-weight:500;" id="' + langId + '-page-label">' + activeLabel + '</span>';
+  for (var i = 0; i < extraPages.length; i++) {
+    var pg = extraPages[i];
+    var active = pg.key === activePage ? ' active' : '';
+    html += '<button type="button" class="btn btn-outline-secondary btn-sm ms-2' + active + '" onclick="switchPage(\'' + langId + '\', \'' + pg.key + '\', this)"><i class="bi ' + pg.icon + '"></i></button>';
+  }
   html += '</div>';
   return html;
 }
@@ -66,7 +84,8 @@ function applyTheme(containerId, theme) {
     sel + ' .table-bordered { --bs-border-color: ' + theme.border + '; }\n' +
     sel + ' .info-box { border-color: ' + theme.border + ' !important; }\n' +
     sel + ' .info-box h6:first-child { color: ' + theme.primary + '; }\n' +
-    (theme.infoBoxTop ? sel + ' .info-box { top: ' + theme.infoBoxTop + '; }\n' : '');
+    (theme.infoBoxTop ? sel + ' .info-box { top: ' + theme.infoBoxTop + '; }\n' : '') +
+    (theme.infoBoxWidth ? sel + ' .info-box { width: ' + theme.infoBoxWidth + '; }\n' : '');
   document.head.appendChild(style);
 }
 
@@ -365,12 +384,15 @@ function switchLang(id, el) {
   document.getElementById(id).classList.remove('d-none');
   el.classList.add('active');
   // Reset toggle to conjugation view
+  var data = langDataMap[id];
+  var title = data ? data.language + ' ' + pageTitles['conjugation'] : 'Conjugations';
   document.querySelectorAll('[id="' + id + '-page-label"]').forEach(function(l) {
-    l.textContent = 'Conjugations';
-    var btnGroup = l.previousElementSibling;
-    if (btnGroup) {
-      btnGroup.querySelectorAll('.btn').forEach(function(b, i) {
-        b.classList.toggle('active', i === 0);
+    l.textContent = title;
+    var row = l.parentElement;
+    if (row) {
+      row.querySelectorAll('.btn').forEach(function(b) {
+        var key = b.getAttribute('onclick').match(/switchPage\('[^']+',\s*'([^']+)'/);
+        b.classList.toggle('active', key && key[1] === 'conjugation');
       });
     }
   });
@@ -381,18 +403,14 @@ function switchPage(langId, page, el) {
   var targetId = page === 'conjugation' ? langId : langId + '-' + page;
   document.getElementById(targetId).classList.remove('d-none');
   var data = langDataMap[langId];
-  var pages = (data && data.pages) || defaultPages;
-  var idx = 0;
-  var label = page;
-  for (var i = 0; i < pages.length; i++) {
-    if (pages[i].key === page) { idx = i; label = pages[i].label; break; }
-  }
+  var title = data.language + ' ' + (pageTitles[page] || page);
   document.querySelectorAll('[id="' + langId + '-page-label"]').forEach(function(l) {
-    l.textContent = label;
-    var btnGroup = l.previousElementSibling;
-    if (btnGroup) {
-      btnGroup.querySelectorAll('.btn').forEach(function(b, i) {
-        b.classList.toggle('active', i === idx);
+    l.textContent = title;
+    var row = l.parentElement;
+    if (row) {
+      row.querySelectorAll('.btn').forEach(function(b) {
+        var key = b.getAttribute('onclick').match(/switchPage\('[^']+',\s*'([^']+)'/);
+        b.classList.toggle('active', key && key[1] === page);
       });
     }
   });
@@ -523,7 +541,7 @@ function renderChartPage(containerId, data) {
 
   // Chart info bar
   if (chart.info) {
-    html += '<div class="card" style="font-size:0.82rem; border-width:2px; border-color:' + data.theme.border + '; position:absolute; top:-1rem; right:0; width:620px; max-width:calc(100vw - 180px - 6rem); z-index:1;">';
+    html += '<div class="card" style="font-size:0.82rem; border-width:2px; border-color:' + data.theme.border + '; position:absolute; top:-2.5rem; right:0; width:620px; max-width:calc(100vw - 180px - 6rem); z-index:1;">';
     html += '<div class="card-body" style="padding:0.8rem;">' + chart.info + '</div></div>';
   }
 
@@ -645,6 +663,33 @@ function renderPluralization(containerId, data) {
   container.innerHTML = html;
 }
 
+// --- Pronouns Page ---
+function renderPronouns(containerId, data) {
+  var container = document.getElementById(containerId);
+  var langId = containerId.replace('-pronouns', '');
+  var html = renderPageHeader(langId, data, 'pronouns');
+  var cats = data.pronouns.categories;
+  for (var c = 0; c < cats.length; c++) {
+    var cat = cats[c];
+    html += '<h5 style="color:' + data.theme.primary + ';">' + esc(cat.name) + '</h5>';
+    html += '<table class="table table-bordered table-striped table-sm mb-4">';
+    html += '<thead><tr>';
+    for (var h = 0; h < cat.headers.length; h++) {
+      html += '<th style="background:' + data.theme.tableHeader + '; color:#fff; font-size:0.8rem;">' + esc(cat.headers[h]) + '</th>';
+    }
+    html += '</tr></thead><tbody>';
+    for (var r = 0; r < cat.rows.length; r++) {
+      html += '<tr>';
+      for (var d = 0; d < cat.rows[r].length; d++) {
+        html += d === 0 ? '<td><strong>' + esc(cat.rows[r][d]) + '</strong></td>' : '<td>' + esc(cat.rows[r][d]) + '</td>';
+      }
+      html += '</tr>';
+    }
+    html += '</tbody></table>';
+  }
+  container.innerHTML = html;
+}
+
 // --- Init ---
 renderLanguage('french', frenchData);
 renderLanguage('italian', italianData);
@@ -685,6 +730,19 @@ renderPluralization('icelandic-pluralization', icelandicData);
 renderPluralization('czech-pluralization', czechData);
 renderPluralization('greek-pluralization', greekData);
 renderPluralization('finnish-pluralization', finnishData);
+renderPronouns('english-pronouns', englishData);
+renderPronouns('french-pronouns', frenchData);
+renderPronouns('italian-pronouns', italianData);
+renderPronouns('spanish-pronouns', spanishData);
+renderPronouns('portuguese-pronouns', portugueseData);
+renderPronouns('german-pronouns', germanData);
+renderPronouns('dutch-pronouns', dutchData);
+renderPronouns('danish-pronouns', danishData);
+renderPronouns('norwegian-pronouns', norwegianData);
+renderPronouns('icelandic-pronouns', icelandicData);
+renderPronouns('czech-pronouns', czechData);
+renderPronouns('greek-pronouns', greekData);
+renderPronouns('finnish-pronouns', finnishData);
 
 if (window.navigator.standalone) document.documentElement.classList.add('standalone');
 

@@ -4,7 +4,8 @@ var czechData = {
   "pages": [
     { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
     { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
-    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" },
+    { "key": "pronouns", "icon": "bi-person", "label": "Pronouns" }
   ],
   "theme": {
     "primary": "#6a1b9a",
@@ -2489,6 +2490,101 @@ var czechData = {
     { "rule": "Neuter: -í (long stems)", "singular": "stavení", "plural": "stavení", "examples": "nádraží→nádraží, náměstí→náměstí, kuře→kuřata" },
     { "rule": "Irregular", "singular": "dítě", "plural": "děti", "examples": "oko→oči, ucho→uši, člověk→lidé, přítel→přátelé, kníže→knížata" }
   ],
+  "pronouns": {
+    "categories": [
+      {
+        "name": "Nominative (1. pád — kdo/co)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "já", "my"],
+          ["2nd person", "ty", "vy"],
+          ["3rd person (m)", "on", "oni"],
+          ["3rd person (f)", "ona", "ony"],
+          ["3rd person (n)", "ono", "ona"]
+        ]
+      },
+      {
+        "name": "Accusative (4. pád — koho/co)",
+        "headers": ["Person", "Singular (full / short)", "Plural"],
+        "rows": [
+          ["1st person", "mě / mne", "nás"],
+          ["2nd person", "tě / tebe", "vás"],
+          ["3rd person (m)", "ho / jeho / jej / něho", "je"],
+          ["3rd person (f)", "ji / ni", "je"],
+          ["3rd person (n)", "ho / je / ně", "je"]
+        ]
+      },
+      {
+        "name": "Dative (3. pád — komu/čemu)",
+        "headers": ["Person", "Singular (full / short)", "Plural"],
+        "rows": [
+          ["1st person", "mně / mi", "nám"],
+          ["2nd person", "tobě / ti", "vám"],
+          ["3rd person (m)", "mu / jemu / němu", "jim"],
+          ["3rd person (f)", "jí / ní", "jim"],
+          ["3rd person (n)", "mu / jemu / němu", "jim"]
+        ]
+      },
+      {
+        "name": "Genitive (2. pád — koho/čeho)",
+        "headers": ["Person", "Singular (full / short)", "Plural"],
+        "rows": [
+          ["1st person", "mě / mne", "nás"],
+          ["2nd person", "tě / tebe", "vás"],
+          ["3rd person (m)", "ho / jeho / něho", "jich / nich"],
+          ["3rd person (f)", "jí / ní", "jich / nich"],
+          ["3rd person (n)", "ho / jeho / něho", "jich / nich"]
+        ]
+      },
+      {
+        "name": "Instrumental (7. pád — kým/čím)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "mnou", "námi"],
+          ["2nd person", "tebou", "vámi"],
+          ["3rd person (m)", "jím / ním", "jimi / nimi"],
+          ["3rd person (f)", "jí / ní", "jimi / nimi"],
+          ["3rd person (n)", "jím / ním", "jimi / nimi"]
+        ]
+      },
+      {
+        "name": "Locative (6. pád — o kom/čem)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "mně", "nás"],
+          ["2nd person", "tobě", "vás"],
+          ["3rd person (m)", "něm", "nich"],
+          ["3rd person (f)", "ní", "nich"],
+          ["3rd person (n)", "něm", "nich"]
+        ]
+      },
+      {
+        "name": "Possessive Adjectives (Přivlastňovací)",
+        "headers": ["Person", "Masc.", "Fem.", "Neut."],
+        "rows": [
+          ["1st sing.", "můj", "moje / má", "moje / mé"],
+          ["2nd sing.", "tvůj", "tvoje / tvá", "tvoje / tvé"],
+          ["3rd sing. (m/n)", "jeho", "jeho", "jeho"],
+          ["3rd sing. (f)", "její", "její", "její"],
+          ["1st pl.", "náš", "naše", "naše"],
+          ["2nd pl.", "váš", "vaše", "vaše"],
+          ["3rd pl.", "jejich", "jejich", "jejich"]
+        ]
+      },
+      {
+        "name": "Reflexive Pronouns (Zvratná zájmena)",
+        "headers": ["Case", "Form"],
+        "rows": [
+          ["Accusative", "se / sebe"],
+          ["Dative", "si / sobě"],
+          ["Genitive", "sebe"],
+          ["Instrumental", "sebou"],
+          ["Locative", "sobě"],
+          ["Possessive", "svůj / svá / své"]
+        ]
+      }
+    ]
+  },
   "chart": {
     "info": "<strong>Czech Verb Classes:</strong> <strong>-e class</strong> (nést, brát, péct) — consonant stems, many irregular; <strong>-ne class</strong> (tisknout, minout) — -nout verbs; <strong>-je class</strong> (kupovat, pracovat) — -ovat verbs, largest regular group; <strong>-á class</strong> (dělat, hrát) — -at verbs with -á- in present; <strong>-í class</strong> (prosit, mluvit, trpět) — -it/-ět verbs, 3sg = 3pl.",
     "columns": ["Past (Minulý)", "Present (Přítomný)", "Future (Budoucí)", "Conditional (Podmiňovací)"],
