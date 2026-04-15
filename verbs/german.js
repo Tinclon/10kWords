@@ -4,7 +4,8 @@ var germanData = {
   "pages": [
     { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
     { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
-    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" },
+    { "key": "pronouns", "icon": "bi-person", "label": "Pronouns" }
   ],
   "theme": {
     "primary": "#546e7a",
@@ -1224,6 +1225,86 @@ var germanData = {
     { "rule": "Umlaut only (no suffix)", "singular": "Vater", "plural": "Väter", "examples": "Mutter→Mütter, Bruder→Brüder, Tochter→Töchter, Apfel→Äpfel, Vogel→Vögel" },
     { "rule": "Irregular", "singular": "Herz", "plural": "Herzen", "examples": "Museum→Museen, Thema→Themen, Firma→Firmen, Datum→Daten, Lexikon→Lexika" }
   ],
+  "pronouns": {
+    "categories": [
+      {
+        "name": "Nominative (Subject)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "ich", "wir"],
+          ["2nd person", "du", "ihr"],
+          ["3rd person (m)", "er", "sie"],
+          ["3rd person (f)", "sie", "sie"],
+          ["3rd person (n)", "es", "sie"],
+          ["Formal", "Sie", "Sie"]
+        ]
+      },
+      {
+        "name": "Accusative (Direct Object)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "mich", "uns"],
+          ["2nd person", "dich", "euch"],
+          ["3rd person (m)", "ihn", "sie"],
+          ["3rd person (f)", "sie", "sie"],
+          ["3rd person (n)", "es", "sie"],
+          ["Formal", "Sie", "Sie"]
+        ]
+      },
+      {
+        "name": "Dative (Indirect Object)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "mir", "uns"],
+          ["2nd person", "dir", "euch"],
+          ["3rd person (m)", "ihm", "ihnen"],
+          ["3rd person (f)", "ihr", "ihnen"],
+          ["3rd person (n)", "ihm", "ihnen"],
+          ["Formal", "Ihnen", "Ihnen"]
+        ]
+      },
+      {
+        "name": "Genitive",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "meiner", "unser"],
+          ["2nd person", "deiner", "euer"],
+          ["3rd person (m)", "seiner", "ihrer"],
+          ["3rd person (f)", "ihrer", "ihrer"],
+          ["3rd person (n)", "seiner", "ihrer"],
+          ["Formal", "Ihrer", "Ihrer"]
+        ]
+      },
+      {
+        "name": "Possessive Adjectives (Nominative case)",
+        "headers": ["Person", "Masc.", "Fem.", "Neut.", "Plural"],
+        "rows": [
+          ["1st sing.", "mein", "meine", "mein", "meine"],
+          ["2nd sing.", "dein", "deine", "dein", "deine"],
+          ["3rd sing. (m)", "sein", "seine", "sein", "seine"],
+          ["3rd sing. (f)", "ihr", "ihre", "ihr", "ihre"],
+          ["3rd sing. (n)", "sein", "seine", "sein", "seine"],
+          ["1st pl.", "unser", "unsere", "unser", "unsere"],
+          ["2nd pl.", "euer", "eure", "euer", "eure"],
+          ["3rd pl.", "ihr", "ihre", "ihr", "ihre"],
+          ["Formal", "Ihr", "Ihre", "Ihr", "Ihre"]
+        ]
+      },
+      {
+        "name": "Reflexive Pronouns",
+        "headers": ["Person", "Accusative", "Dative"],
+        "rows": [
+          ["1st sing.", "mich", "mir"],
+          ["2nd sing.", "dich", "dir"],
+          ["3rd sing.", "sich", "sich"],
+          ["1st pl.", "uns", "uns"],
+          ["2nd pl.", "euch", "euch"],
+          ["3rd pl.", "sich", "sich"],
+          ["Formal", "sich", "sich"]
+        ]
+      }
+    ]
+  },
   "chart": {
     "columns": ["Past (Vergangenheit)", "Present (Gegenwart)", "Future (Zukunft)", "Subjunctive (Konjunktiv)"],
     "rows": ["Simple (Einfach)", "Perfect (Perfekt)", "Pluperfect (Plusquamperfekt)"],

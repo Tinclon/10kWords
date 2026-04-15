@@ -4,7 +4,8 @@ var italianData = {
   "pages": [
     { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
     { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
-    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" },
+    { "key": "pronouns", "icon": "bi-person", "label": "Pronouns" }
   ],
   "theme": {
     "primary": "#558b2f",
@@ -4358,6 +4359,75 @@ var italianData = {
     { "rule": "Invariable (ending in accent/consonant)", "singular": "città", "plural": "città", "examples": "caffè→caffè, film→film, bar→bar, sport→sport" },
     { "rule": "Irregular", "singular": "uomo", "plural": "uomini", "examples": "mano→mani, bue→buoi, dio→dèi, uovo→uova" }
   ],
+  "pronouns": {
+    "categories": [
+      {
+        "name": "Subject Pronouns (Pronomi soggetto)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "io", "noi"],
+          ["2nd person", "tu", "voi"],
+          ["3rd person (m)", "lui / egli", "loro / essi"],
+          ["3rd person (f)", "lei / ella", "loro / esse"],
+          ["Formal", "Lei", "Loro"]
+        ]
+      },
+      {
+        "name": "Direct Object Pronouns (Pronomi complemento diretto)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "mi", "ci"],
+          ["2nd person", "ti", "vi"],
+          ["3rd person (m)", "lo", "li"],
+          ["3rd person (f)", "la", "le"],
+          ["Formal", "La", "Li / Le"]
+        ]
+      },
+      {
+        "name": "Indirect Object Pronouns (Pronomi complemento indiretto)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "mi", "ci"],
+          ["2nd person", "ti", "vi"],
+          ["3rd person (m)", "gli", "gli (loro)"],
+          ["3rd person (f)", "le", "gli (loro)"],
+          ["Formal", "Le", "Loro"]
+        ]
+      },
+      {
+        "name": "Stressed Pronouns (Pronomi tonici)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "me", "noi"],
+          ["2nd person", "te", "voi"],
+          ["3rd person (m)", "lui", "loro"],
+          ["3rd person (f)", "lei", "loro"],
+          ["Reflexive", "sé", "sé"]
+        ]
+      },
+      {
+        "name": "Possessive Adjectives & Pronouns (Possessivi)",
+        "headers": ["Person", "Masc. sing.", "Fem. sing.", "Masc. pl.", "Fem. pl."],
+        "rows": [
+          ["1st sing.", "il mio", "la mia", "i miei", "le mie"],
+          ["2nd sing.", "il tuo", "la tua", "i tuoi", "le tue"],
+          ["3rd sing.", "il suo", "la sua", "i suoi", "le sue"],
+          ["1st pl.", "il nostro", "la nostra", "i nostri", "le nostre"],
+          ["2nd pl.", "il vostro", "la vostra", "i vostri", "le vostre"],
+          ["3rd pl.", "il loro", "la loro", "i loro", "le loro"]
+        ]
+      },
+      {
+        "name": "Reflexive Pronouns (Pronomi riflessivi)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "mi", "ci"],
+          ["2nd person", "ti", "vi"],
+          ["3rd person", "si", "si"]
+        ]
+      }
+    ]
+  },
   "chart": {
     "columns": ["Past (Passato)", "Present (Presente)", "Future (Futuro)", "Conditional (Condizionale)"],
     "rows": ["Simple (Semplice)", "Compound (Composto)", "Imperfect (Imperfetto)", "Pluperfect (Trapassato)"],

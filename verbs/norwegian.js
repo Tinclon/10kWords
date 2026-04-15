@@ -4,7 +4,8 @@ var norwegianData = {
   "pages": [
     { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
     { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
-    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" },
+    { "key": "pronouns", "icon": "bi-person", "label": "Pronouns" }
   ],
   "theme": {
     "primary": "#1a237e",
@@ -773,6 +774,58 @@ var norwegianData = {
     { "rule": "Umlaut / vowel change", "singular": "mann", "plural": "menn", "examples": "gås→gjess, tå→tær, and→ender, bonde→bønder" },
     { "rule": "Irregular", "singular": "øye", "plural": "øyne", "examples": "øre→ører, ku→kuer/kyr, tre→trær, kne→knær" }
   ],
+  "pronouns": {
+    "categories": [
+      {
+        "name": "Subject Pronouns (Subjektsform)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "jeg", "vi"],
+          ["2nd person", "du", "dere"],
+          ["3rd person (m)", "han", "de"],
+          ["3rd person (f)", "hun", "de"],
+          ["3rd person (n)", "den / det", "de"]
+        ]
+      },
+      {
+        "name": "Object Pronouns (Objektsform)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "meg", "oss"],
+          ["2nd person", "deg", "dere"],
+          ["3rd person (m)", "ham / han", "dem"],
+          ["3rd person (f)", "henne", "dem"],
+          ["3rd person (n)", "den / det", "dem"]
+        ]
+      },
+      {
+        "name": "Possessive Pronouns (Eiendomsord)",
+        "headers": ["Person", "Masc.", "Fem.", "Neut.", "Plural"],
+        "rows": [
+          ["1st sing.", "min", "mi", "mitt", "mine"],
+          ["2nd sing.", "din", "di", "ditt", "dine"],
+          ["3rd sing. (m)", "hans", "hans", "hans", "hans"],
+          ["3rd sing. (f)", "hennes", "hennes", "hennes", "hennes"],
+          ["3rd sing. (own)", "sin", "si", "sitt", "sine"],
+          ["1st pl.", "vår", "vår", "vårt", "våre"],
+          ["2nd pl.", "deres", "deres", "deres", "deres"],
+          ["3rd pl.", "deres", "deres", "deres", "deres"]
+        ]
+      },
+      {
+        "name": "Reflexive Pronouns (Refleksive)",
+        "headers": ["Person", "Form"],
+        "rows": [
+          ["1st sing.", "meg (selv)"],
+          ["2nd sing.", "deg (selv)"],
+          ["3rd sing.", "seg (selv)"],
+          ["1st pl.", "oss (selv)"],
+          ["2nd pl.", "dere (selv)"],
+          ["3rd pl.", "seg (selv)"]
+        ]
+      }
+    ]
+  },
   "chart": {
     "info": "<strong>Group 1 (-et)</strong> vs <strong>Group 2 (-te)</strong>: Group 1 verbs form past tense with <em>-et</em> and past participle with <em>-et</em> (kaste → kastet / kastet). Group 2 verbs use <em>-te</em> and <em>-t</em> (kjøpe → kjøpte / kjøpt). Rule of thumb: stems ending in two+ consonants or unstressed syllables → Group 1; single consonant after long/stressed vowel → Group 2.",
     "columns": ["Past (Fortid)", "Present (Nåtid)", "Future (Fremtid)"],

@@ -4,7 +4,8 @@ var greekData = {
   "pages": [
     { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
     { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
-    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" },
+    { "key": "pronouns", "icon": "bi-person", "label": "Pronouns" }
   ],
   "theme": {
     "primary": "#0277bd",
@@ -1645,6 +1646,65 @@ var greekData = {
     { "rule": "Neuter -ος → -η", "singular": "δάσος", "plural": "δάση", "examples": "έθνος→έθνη, μέρος→μέρη, λάθος→λάθη" },
     { "rule": "Irregular", "singular": "γυναίκα", "plural": "γυναίκες", "examples": "μάτι→μάτια, αυτί→αυτιά, χέρι→χέρια, πόδι→πόδια" }
   ],
+  "pronouns": {
+    "categories": [
+      {
+        "name": "Subject Pronouns (Ονομαστική — Προσωπικές αντωνυμίες)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "εγώ", "εμείς"],
+          ["2nd person", "εσύ", "εσείς"],
+          ["3rd person (m)", "αυτός", "αυτοί"],
+          ["3rd person (f)", "αυτή", "αυτές"],
+          ["3rd person (n)", "αυτό", "αυτά"]
+        ]
+      },
+      {
+        "name": "Weak Object Pronouns — Accusative (Αιτιατική)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "με", "μας"],
+          ["2nd person", "σε", "σας"],
+          ["3rd person (m)", "τον", "τους"],
+          ["3rd person (f)", "την / τη", "τις / τες"],
+          ["3rd person (n)", "το", "τα"]
+        ]
+      },
+      {
+        "name": "Weak Object Pronouns — Genitive / Dative (Γενική)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "μου", "μας"],
+          ["2nd person", "σου", "σας"],
+          ["3rd person (m)", "του", "τους"],
+          ["3rd person (f)", "της", "τους"],
+          ["3rd person (n)", "του", "τους"]
+        ]
+      },
+      {
+        "name": "Strong Object Pronouns (Εμφατικές — Αιτιατική)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "εμένα", "εμάς"],
+          ["2nd person", "εσένα", "εσάς"],
+          ["3rd person (m)", "αυτόν", "αυτούς"],
+          ["3rd person (f)", "αυτήν / αυτή", "αυτές"],
+          ["3rd person (n)", "αυτό", "αυτά"]
+        ]
+      },
+      {
+        "name": "Possessive (Κτητικές αντωνυμίες — Genitive clitic)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "μου", "μας"],
+          ["2nd person", "σου", "σας"],
+          ["3rd person (m)", "του", "τους"],
+          ["3rd person (f)", "της", "τους"],
+          ["3rd person (n)", "του", "τους"]
+        ]
+      }
+    ]
+  },
   "chart": {
     "columns": ["Past (Παρελθόν)", "Present (Παρόν)", "Future (Μέλλον)", "Conditional"],
     "rows": ["Simple/Aorist", "Continuous/Imperfective", "Perfect"],

@@ -4,10 +4,12 @@ var finnishData = {
   "pages": [
     { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
     { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
-    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" },
+    { "key": "pronouns", "icon": "bi-person", "label": "Pronouns" }
   ],
   "theme": {
     "primary": "#0d47a1",
+    "infoBoxTop": "-2.5rem",
     "secondary": "#1565c0",
     "tableHeader": "#1976d2",
     "stripedRow": "#e3f2fd",
@@ -1293,6 +1295,58 @@ var finnishData = {
     { "rule": "-s → -kset (nominative), -ksia (partitive)", "singular": "kysymys", "plural": "kysymykset", "examples": "vastaus→vastaukset, opiskelu→opiskelut" },
     { "rule": "Irregular", "singular": "lapsi", "plural": "lapset", "examples": "mies→miehet, käsi→kädet, vesi→vedet, uusi→uudet" }
   ],
+  "pronouns": {
+    "categories": [
+      {
+        "name": "Nominative (Nominatiivi)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "minä", "me"],
+          ["2nd person", "sinä", "te"],
+          ["3rd person", "hän", "he"]
+        ]
+      },
+      {
+        "name": "Genitive (Genetiivi)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "minun", "meidän"],
+          ["2nd person", "sinun", "teidän"],
+          ["3rd person", "hänen", "heidän"]
+        ]
+      },
+      {
+        "name": "Partitive (Partitiivi)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "minua", "meitä"],
+          ["2nd person", "sinua", "teitä"],
+          ["3rd person", "häntä", "heitä"]
+        ]
+      },
+      {
+        "name": "Accusative (Akkusatiivi)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "minut", "meidät"],
+          ["2nd person", "sinut", "teidät"],
+          ["3rd person", "hänet", "heidät"]
+        ]
+      },
+      {
+        "name": "Possessive Suffixes (Omistusliitteet)",
+        "headers": ["Person", "Suffix", "Example (talo = house)"],
+        "rows": [
+          ["1st sing.", "-ni", "taloni"],
+          ["2nd sing.", "-si", "talosi"],
+          ["3rd sing.", "-nsa / -nsä", "talonsa"],
+          ["1st pl.", "-mme", "talomme"],
+          ["2nd pl.", "-nne", "talonne"],
+          ["3rd pl.", "-nsa / -nsä", "talonsa"]
+        ]
+      }
+    ]
+  },
   "chart": {
     "info": "<strong>Finnish Verb Types:</strong> <strong>Type 1</strong> (-Vа/-Vä: puhua, antaa, lukea) — largest group, many with consonant gradation; <strong>Type 2</strong> (-da/-dä: syödä, tehdä) — short vowel stems; <strong>Type 3</strong> (-la/-na/-ra/-sta: tulla, mennä, nousta) — consonant stems with -e- in present; <strong>Type 4</strong> (-Vta/-Vtä: haluta, tavata) — add -a-/-ä- to stem; <strong>Type 5</strong> (-ita: tarvita) — add -tse- to stem; <strong>Type 6</strong> (-eta: vanheta) — add -ne- to stem. Finnish is a Uralic language — not Indo-European. The negative verb (en, et, ei, emme, ette, eivät) conjugates for person instead of the main verb.",
     "columns": ["Past (Menneisyys)", "Present (Nykyisyys)", "Conditional (Konditionaali)"],

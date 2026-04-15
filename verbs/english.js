@@ -4,7 +4,8 @@ var englishData = {
   "pages": [
     { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
     { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
-    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" },
+    { "key": "pronouns", "icon": "bi-person", "label": "Pronouns" }
   ],
   "theme": {
     "primary": "#1b5e20",
@@ -2207,6 +2208,65 @@ var englishData = {
     { "rule": "Ends in -a: change to -ae", "singular": "antenna", "plural": "antennae", "examples": "larva→larvae, alumna→alumnae, formula→formulae" },
     { "rule": "Completely irregular", "singular": "child", "plural": "children", "examples": "ox→oxen, person→people, die→dice" }
   ],
+  "pronouns": {
+    "categories": [
+      {
+        "name": "Subject Pronouns",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "I", "we"],
+          ["2nd person", "you", "you"],
+          ["3rd person (m)", "he", "they"],
+          ["3rd person (f)", "she", "they"],
+          ["3rd person (n)", "it", "they"]
+        ]
+      },
+      {
+        "name": "Object Pronouns",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "me", "us"],
+          ["2nd person", "you", "you"],
+          ["3rd person (m)", "him", "them"],
+          ["3rd person (f)", "her", "them"],
+          ["3rd person (n)", "it", "them"]
+        ]
+      },
+      {
+        "name": "Possessive Adjectives",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "my", "our"],
+          ["2nd person", "your", "your"],
+          ["3rd person (m)", "his", "their"],
+          ["3rd person (f)", "her", "their"],
+          ["3rd person (n)", "its", "their"]
+        ]
+      },
+      {
+        "name": "Possessive Pronouns",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "mine", "ours"],
+          ["2nd person", "yours", "yours"],
+          ["3rd person (m)", "his", "theirs"],
+          ["3rd person (f)", "hers", "theirs"],
+          ["3rd person (n)", "—", "theirs"]
+        ]
+      },
+      {
+        "name": "Reflexive Pronouns",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "myself", "ourselves"],
+          ["2nd person", "yourself", "yourselves"],
+          ["3rd person (m)", "himself", "themselves"],
+          ["3rd person (f)", "herself", "themselves"],
+          ["3rd person (n)", "itself", "themselves"]
+        ]
+      }
+    ]
+  },
   "chart": {
     "columns": ["Past", "Present", "Future", "Conditional"],
     "rows": ["Simple", "Perfect", "Continuous", "Perfect Continuous"],

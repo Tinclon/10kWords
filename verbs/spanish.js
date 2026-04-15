@@ -4,7 +4,8 @@ var spanishData = {
   "pages": [
     { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
     { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
-    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" },
+    { "key": "pronouns", "icon": "bi-person", "label": "Pronouns" }
   ],
   "theme": {
     "primary": "#b03060",
@@ -8195,6 +8196,85 @@ var spanishData = {
     { "rule": "Ends in unstressed -s: no change", "singular": "lunes", "plural": "lunes", "examples": "martes→martes, crisis→crisis, análisis→análisis, paraguas→paraguas" },
     { "rule": "Irregular", "singular": "carácter", "plural": "caracteres", "examples": "régimen→regímenes, espécimen→especímenes" }
   ],
+  "pronouns": {
+    "categories": [
+      {
+        "name": "Subject Pronouns (Pronombres sujeto)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "yo", "nosotros / nosotras"],
+          ["2nd person", "tú", "vosotros / vosotras"],
+          ["3rd person (m)", "él", "ellos"],
+          ["3rd person (f)", "ella", "ellas"],
+          ["Formal", "usted (Ud.)", "ustedes (Uds.)"]
+        ]
+      },
+      {
+        "name": "Direct Object Pronouns (Pronombres de OD)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "me", "nos"],
+          ["2nd person", "te", "os"],
+          ["3rd person (m)", "lo", "los"],
+          ["3rd person (f)", "la", "las"]
+        ]
+      },
+      {
+        "name": "Indirect Object Pronouns (Pronombres de OI)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "me", "nos"],
+          ["2nd person", "te", "os"],
+          ["3rd person", "le (se)", "les (se)"]
+        ]
+      },
+      {
+        "name": "Prepositional Pronouns (Pronombres preposicionales)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "mí", "nosotros / nosotras"],
+          ["2nd person", "ti", "vosotros / vosotras"],
+          ["3rd person (m)", "él", "ellos"],
+          ["3rd person (f)", "ella", "ellas"],
+          ["Reflexive", "sí", "sí"],
+          ["With con", "conmigo", "con nosotros"]
+        ]
+      },
+      {
+        "name": "Possessive Adjectives (Adjetivos posesivos)",
+        "headers": ["Person", "Sing. (before noun)", "Pl. (before noun)"],
+        "rows": [
+          ["1st sing.", "mi", "mis"],
+          ["2nd sing.", "tu", "tus"],
+          ["3rd sing.", "su", "sus"],
+          ["1st pl.", "nuestro / nuestra", "nuestros / nuestras"],
+          ["2nd pl.", "vuestro / vuestra", "vuestros / vuestras"],
+          ["3rd pl.", "su", "sus"]
+        ]
+      },
+      {
+        "name": "Possessive Pronouns (Pronombres posesivos)",
+        "headers": ["Person", "Masc. sing.", "Fem. sing.", "Masc. pl.", "Fem. pl."],
+        "rows": [
+          ["1st sing.", "mío", "mía", "míos", "mías"],
+          ["2nd sing.", "tuyo", "tuya", "tuyos", "tuyas"],
+          ["3rd sing.", "suyo", "suya", "suyos", "suyas"],
+          ["1st pl.", "nuestro", "nuestra", "nuestros", "nuestras"],
+          ["2nd pl.", "vuestro", "vuestra", "vuestros", "vuestras"],
+          ["3rd pl.", "suyo", "suya", "suyos", "suyas"]
+        ]
+      },
+      {
+        "name": "Reflexive Pronouns (Pronombres reflexivos)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "me", "nos"],
+          ["2nd person", "te", "os"],
+          ["3rd person", "se", "se"]
+        ]
+      }
+    ]
+  },
   "chart": {
     "columns": ["Past (Pasado)", "Present (Presente)", "Future (Futuro)", "Conditional (Condicional)"],
     "rows": ["Simple (Simple)", "Compound (Compuesto)", "Imperfect (Imperfecto)", "Pluperfect (Pluscuamperfecto)"],

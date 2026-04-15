@@ -4,7 +4,8 @@ var icelandicData = {
   "pages": [
     { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
     { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
-    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" },
+    { "key": "pronouns", "icon": "bi-person", "label": "Pronouns" }
   ],
   "theme": {
     "primary": "#00838f",
@@ -1268,6 +1269,74 @@ var icelandicData = {
     { "rule": "i-umlaut in plural", "singular": "maður", "plural": "menn", "examples": "fótur→fætur, bók→bækur, nótt→nætur, tón→tónar" },
     { "rule": "Irregular", "singular": "kýr", "plural": "kýr", "examples": "mús→mýs, lús→lýs, gás→gæs, önd→endur" }
   ],
+  "pronouns": {
+    "categories": [
+      {
+        "name": "Nominative (Nefnifall)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "ég", "við"],
+          ["2nd person", "þú", "þið"],
+          ["3rd person (m)", "hann", "þeir"],
+          ["3rd person (f)", "hún", "þær"],
+          ["3rd person (n)", "það", "þau"]
+        ]
+      },
+      {
+        "name": "Accusative (Þolfall)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "mig", "okkur"],
+          ["2nd person", "þig", "ykkur"],
+          ["3rd person (m)", "hann", "þá"],
+          ["3rd person (f)", "hana", "þær"],
+          ["3rd person (n)", "það", "þau"]
+        ]
+      },
+      {
+        "name": "Dative (Þágufall)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "mér", "okkur"],
+          ["2nd person", "þér", "ykkur"],
+          ["3rd person (m)", "honum", "þeim"],
+          ["3rd person (f)", "henni", "þeim"],
+          ["3rd person (n)", "því", "þeim"]
+        ]
+      },
+      {
+        "name": "Genitive (Eignarfall)",
+        "headers": ["Person", "Singular", "Plural"],
+        "rows": [
+          ["1st person", "mín", "okkar"],
+          ["2nd person", "þín", "ykkar"],
+          ["3rd person (m)", "hans", "þeirra"],
+          ["3rd person (f)", "hennar", "þeirra"],
+          ["3rd person (n)", "þess", "þeirra"]
+        ]
+      },
+      {
+        "name": "Possessive Pronouns (Eignarfornöfn) — minn",
+        "headers": ["Person", "Masc.", "Fem.", "Neut."],
+        "rows": [
+          ["1st sing.", "minn", "mín", "mitt"],
+          ["2nd sing.", "þinn", "þín", "þitt"],
+          ["3rd sing. (own)", "sinn", "sín", "sitt"],
+          ["1st pl.", "okkar", "okkar", "okkar"],
+          ["2nd pl.", "ykkar", "ykkar", "ykkar"]
+        ]
+      },
+      {
+        "name": "Reflexive Pronouns (Afturbeygt fornafn)",
+        "headers": ["Case", "Form"],
+        "rows": [
+          ["Accusative", "sig"],
+          ["Dative", "sér"],
+          ["Genitive", "sín"]
+        ]
+      }
+    ]
+  },
   "chart": {
     "columns": ["Past (Þátíð)", "Present (Nútíð)", "Future (Framtíð)"],
     "rows": ["Simple (Einfalt)", "Perfect (Lýsingarháttur þátíðar)"],
