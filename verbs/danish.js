@@ -4,6 +4,7 @@ var danishData = {
   "pages": [
     { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
     { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
+    { "key": "practice", "icon": "bi-pencil", "label": "Practice" },
     { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" },
     { "key": "pronouns", "icon": "bi-person", "label": "Pronouns" }
   ],
