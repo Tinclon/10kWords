@@ -1,6 +1,11 @@
 var dutchData = {
   "language": "Dutch",
   "title": "Dutch Verbs",
+  "pages": [
+    { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
+    { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+  ],
   "theme": {
     "primary": "#e65100",
     "secondary": "#bf360c",
@@ -772,6 +777,15 @@ var dutchData = {
       ]
     }
   },
+  "pluralization": [
+    { "rule": "Add -en (most common)", "singular": "tafel", "plural": "tafels", "examples": "boek→boeken, huis→huizen, stoel→stoelen, dag→dagen, brief→brieven" },
+    { "rule": "Add -s (words ending in -el, -em, -en, -er, -je)", "singular": "appel", "plural": "appels", "examples": "meisje→meisjes, tante→tantes, oom→ooms, jongen→jongens, kamer→kamers" },
+    { "rule": "-heid → -heden", "singular": "mogelijkheid", "plural": "mogelijkheden", "examples": "moeilijkheid→moeilijkheden, waarheid→waarheden, gelegenheid→gelegenheden" },
+    { "rule": "Double vowel shortens (aa→a, oo→o, etc.)", "singular": "maan", "plural": "manen", "examples": "boot→boten, raam→ramen, been→benen, laan→lanen" },
+    { "rule": "Final consonant doubles", "singular": "kat", "plural": "katten", "examples": "man→mannen, stap→stappen, bed→bedden, fles→flessen" },
+    { "rule": "Latin/Greek plurals", "singular": "museum", "plural": "musea", "examples": "centrum→centra, datum→data, stadium→stadia" },
+    { "rule": "Irregular", "singular": "kind", "plural": "kinderen", "examples": "ei→eieren, stad→steden, lid→leden, schip→schepen" }
+  ],
   "chart": {
     "columns": ["Past (Verleden)", "Present (Tegenwoordig)", "Future (Toekomend)", "Conditional (Voorwaardelijk)"],
     "rows": ["Simple (Onvoltooid)", "Perfect (Voltooid)"],

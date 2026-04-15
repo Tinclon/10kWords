@@ -1,6 +1,11 @@
 var englishData = {
   "language": "English",
   "title": "English Verbs",
+  "pages": [
+    { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
+    { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+  ],
   "theme": {
     "primary": "#1b5e20",
     "secondary": "#134016",
@@ -2185,6 +2190,23 @@ var englishData = {
       "description": "Gives direct commands, instructions, or requests."
     }
   },
+  "pluralization": [
+    { "rule": "Regular: add -s", "singular": "cat", "plural": "cats", "examples": "dog→dogs, book→books, car→cars, house→houses" },
+    { "rule": "Ends in -s, -sh, -ch, -x, -z: add -es", "singular": "bus", "plural": "buses", "examples": "wish→wishes, match→matches, box→boxes, quiz→quizzes" },
+    { "rule": "Ends in consonant + y: change y to -ies", "singular": "baby", "plural": "babies", "examples": "city→cities, story→stories, party→parties, fly→flies" },
+    { "rule": "Ends in vowel + y: add -s", "singular": "key", "plural": "keys", "examples": "boy→boys, day→days, toy→toys, monkey→monkeys" },
+    { "rule": "Ends in -f or -fe: change to -ves", "singular": "knife", "plural": "knives", "examples": "wife→wives, life→lives, leaf→leaves, wolf→wolves" },
+    { "rule": "Exceptions: -f just adds -s", "singular": "roof", "plural": "roofs", "examples": "chief→chiefs, belief→beliefs, cliff→cliffs, proof→proofs" },
+    { "rule": "Ends in -o: add -es (common)", "singular": "tomato", "plural": "tomatoes", "examples": "potato→potatoes, hero→heroes, echo→echoes, volcano→volcanoes" },
+    { "rule": "Ends in -o: add -s (foreign/short)", "singular": "photo", "plural": "photos", "examples": "piano→pianos, radio→radios, studio→studios, zoo→zoos" },
+    { "rule": "Vowel change (irregular)", "singular": "man", "plural": "men", "examples": "woman→women, foot→feet, tooth→teeth, goose→geese, mouse→mice" },
+    { "rule": "Same singular and plural", "singular": "sheep", "plural": "sheep", "examples": "fish→fish, deer→deer, species→species, aircraft→aircraft" },
+    { "rule": "Ends in -us: change to -i", "singular": "cactus", "plural": "cacti", "examples": "fungus→fungi, nucleus→nuclei, stimulus→stimuli, syllabus→syllabi" },
+    { "rule": "Ends in -is: change to -es", "singular": "analysis", "plural": "analyses", "examples": "basis→bases, crisis→crises, thesis→theses, diagnosis→diagnoses" },
+    { "rule": "Ends in -on: change to -a", "singular": "criterion", "plural": "criteria", "examples": "phenomenon→phenomena" },
+    { "rule": "Ends in -a: change to -ae", "singular": "antenna", "plural": "antennae", "examples": "larva→larvae, alumna→alumnae, formula→formulae" },
+    { "rule": "Completely irregular", "singular": "child", "plural": "children", "examples": "ox→oxen, person→people, die→dice" }
+  ],
   "chart": {
     "columns": ["Past", "Present", "Future", "Conditional"],
     "rows": ["Simple", "Perfect", "Continuous", "Perfect Continuous"],

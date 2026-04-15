@@ -5,17 +5,25 @@ var langSearchState = {};
 var searchTimers = {};
 
 // --- Utilities ---
+var defaultPages = [
+  { key: 'conjugation', icon: 'bi-table', label: 'Conjugations' },
+  { key: 'chart', icon: 'bi-grid-3x3', label: 'Chart' }
+];
+
 function renderPageHeader(langId, data, activePage) {
-  var conjActive = activePage === 'conjugation' ? ' active' : '';
-  var chartActive = activePage === 'chart' ? ' active' : '';
-  var label = activePage === 'conjugation' ? 'Conjugations' : 'Chart';
+  var pages = data.pages || defaultPages;
+  var activeLabel = '';
   var html = '<div class="d-flex align-items-center mb-3 flex-wrap gap-2">';
   html += '<h1 class="mb-0 me-3" style="color:' + data.theme.primary + ';">' + esc(data.title) + '</h1>';
   html += '<div class="btn-group btn-group-sm" role="group">';
-  html += '<button type="button" class="btn btn-outline-secondary' + conjActive + '" onclick="switchPage(\'' + langId + '\', \'conjugation\', this)"><i class="bi bi-table"></i></button>';
-  html += '<button type="button" class="btn btn-outline-secondary' + chartActive + '" onclick="switchPage(\'' + langId + '\', \'chart\', this)"><i class="bi bi-grid-3x3"></i></button>';
+  for (var i = 0; i < pages.length; i++) {
+    var pg = pages[i];
+    var active = pg.key === activePage ? ' active' : '';
+    if (pg.key === activePage) activeLabel = pg.label;
+    html += '<button type="button" class="btn btn-outline-secondary' + active + '" onclick="switchPage(\'' + langId + '\', \'' + pg.key + '\', this)"><i class="bi ' + pg.icon + '"></i></button>';
+  }
   html += '</div>';
-  html += '<span class="mb-0" style="color:' + data.theme.primary + '; font-size:1.2rem; font-weight:500;" id="' + langId + '-page-label">' + label + '</span>';
+  html += '<span class="mb-0" style="color:' + data.theme.primary + '; font-size:1.2rem; font-weight:500;" id="' + langId + '-page-label">' + activeLabel + '</span>';
   html += '</div>';
   return html;
 }
@@ -57,7 +65,8 @@ function applyTheme(containerId, theme) {
     sel + ' .table-striped > tbody > tr:nth-of-type(odd) > * { --bs-table-striped-bg: ' + theme.stripedRow + '; }\n' +
     sel + ' .table-bordered { --bs-border-color: ' + theme.border + '; }\n' +
     sel + ' .info-box { border-color: ' + theme.border + ' !important; }\n' +
-    sel + ' .info-box h6:first-child { color: ' + theme.primary + '; }\n';
+    sel + ' .info-box h6:first-child { color: ' + theme.primary + '; }\n' +
+    (theme.infoBoxTop ? sel + ' .info-box { top: ' + theme.infoBoxTop + '; }\n' : '');
   document.head.appendChild(style);
 }
 
@@ -371,9 +380,15 @@ function switchPage(langId, page, el) {
   document.querySelectorAll('.lang-page').forEach(function(p) { p.classList.add('d-none'); });
   var targetId = page === 'conjugation' ? langId : langId + '-' + page;
   document.getElementById(targetId).classList.remove('d-none');
-  var idx = page === 'conjugation' ? 0 : 1;
+  var data = langDataMap[langId];
+  var pages = (data && data.pages) || defaultPages;
+  var idx = 0;
+  var label = page;
+  for (var i = 0; i < pages.length; i++) {
+    if (pages[i].key === page) { idx = i; label = pages[i].label; break; }
+  }
   document.querySelectorAll('[id="' + langId + '-page-label"]').forEach(function(l) {
-    l.textContent = page === 'conjugation' ? 'Conjugations' : 'Chart';
+    l.textContent = label;
     var btnGroup = l.previousElementSibling;
     if (btnGroup) {
       btnGroup.querySelectorAll('.btn').forEach(function(b, i) {
@@ -491,6 +506,8 @@ function resetVerbSearch(containerId) {
 }
 
 // --- Chart Page ---
+var chartViewMode = {};
+
 function renderChartPage(containerId, data) {
   var container = document.getElementById(containerId);
   var chart = data.chart;
@@ -499,8 +516,36 @@ function renderChartPage(containerId, data) {
   var groups = chart.groups;
   var cells = chart.cells;
   var langId = containerId.replace('-chart', '');
+  var mode = chartViewMode[containerId] || 'combined';
+  var keys = ['er', 'ir', 're'];
+
   var html = renderPageHeader(langId, data, 'chart');
-  html += '<div class="table-responsive" style="height:calc(100vh - 8rem); display:flex; flex-direction:column;">';
+
+  // Chart info bar
+  if (chart.info) {
+    html += '<div class="card" style="font-size:0.82rem; border-width:2px; border-color:' + data.theme.border + '; position:absolute; top:-1rem; right:0; width:620px; max-width:calc(100vw - 180px - 6rem); z-index:1;">';
+    html += '<div class="card-body" style="padding:0.8rem;">' + chart.info + '</div></div>';
+  }
+
+  // View toggle (only if multiple groups)
+  if (groups.length > 1) {
+    html += '<div class="mb-2">';
+    html += '<div class="btn-group btn-group-sm" role="group">';
+    html += '<button type="button" class="btn btn-outline-secondary' + (mode === 'combined' ? ' active' : '') + '" onclick="switchChartView(\'' + containerId + '\', \'combined\')">All</button>';
+    for (var g = 0; g < groups.length; g++) {
+      html += '<button type="button" class="btn btn-outline-secondary' + (mode === groups[g] ? ' active' : '') + '" onclick="switchChartView(\'' + containerId + '\', \'' + esc(groups[g]).replace(/'/g, "\\'") + '\')">' + esc(groups[g]) + '</button>';
+    }
+    html += '</div></div>';
+  }
+
+  var showGroupIdx = -1;
+  if (mode !== 'combined') {
+    for (var g = 0; g < groups.length; g++) {
+      if (groups[g] === mode) { showGroupIdx = g; break; }
+    }
+  }
+
+  html += '<div class="table-responsive" style="height:calc(100vh - ' + (groups.length > 1 ? '11' : '8') + 'rem); display:flex; flex-direction:column;">';
   html += '<table class="table table-bordered" style="width:100%; table-layout:fixed; flex:1;">';
   html += '<thead><tr><th style="background:' + data.theme.tableHeader + '; color:#fff; width:9rem;"></th>';
   for (var c = 0; c < columns.length; c++) {
@@ -515,7 +560,23 @@ function renderChartPage(containerId, data) {
       if (!cell) {
         html += '<td style="vertical-align:middle; text-align:center; background:#f8f8f8;">';
         html += '<span class="text-muted fst-italic" style="font-size:0.75rem;">not used</span>';
+      } else if (showGroupIdx >= 0) {
+        // Single group view
+        var conj = cell[keys[showGroupIdx]];
+        html += '<td style="vertical-align:middle; text-align:center; padding:0.3rem;">';
+        html += '<strong style="font-size:0.85rem;">' + esc(cell.form) + '</strong>';
+        html += '<br><span class="text-muted" style="font-size:0.75rem;">' + esc(cell.rule) + '</span>';
+        if (!conj) {
+          html += '<div class="text-muted fst-italic" style="font-size:0.8rem; margin-top:4px;">n/a</div>';
+        } else {
+          html += '<table class="table table-sm table-bordered mb-0 mt-1 mx-auto" style="font-size:0.85rem; max-width:90%;">';
+          for (var p = 0; p < conj.length; p++) {
+            html += '<tr><td style="padding:1px 4px;">' + esc(conj[p][0]) + '</td><td style="padding:1px 4px;">' + esc(conj[p][1]) + '</td></tr>';
+          }
+          html += '</table>';
+        }
       } else {
+        // Combined view
         html += '<td style="vertical-align:middle; text-align:center; padding:0.2rem;">';
         html += '<strong style="font-size:0.7rem;">' + esc(cell.form) + '</strong>';
         html += '<br><span class="text-muted" style="font-size:0.6rem;">' + esc(cell.rule) + '</span>';
@@ -546,19 +607,84 @@ function renderChartPage(containerId, data) {
   html += '</tbody></table></div>';
   container.innerHTML = html;
 }
+
+function switchChartView(containerId, mode) {
+  chartViewMode[containerId] = mode;
+  var langId = containerId.replace('-chart', '');
+  var data = langDataMap[langId];
+  renderChartPage(containerId, data);
+}
+// --- Pluralization Page ---
+function renderPluralization(containerId, data) {
+  var container = document.getElementById(containerId);
+  var langId = containerId.replace('-pluralization', '');
+  var html = renderPageHeader(langId, data, 'pluralization');
+
+  html += '<div class="table-responsive">';
+  html += '<table class="table table-bordered" style="width:100%;">';
+  html += '<thead><tr>';
+  html += '<th style="background:' + data.theme.tableHeader + '; color:#fff;">Rule</th>';
+  html += '<th style="background:' + data.theme.tableHeader + '; color:#fff;">Singular</th>';
+  html += '<th style="background:' + data.theme.tableHeader + '; color:#fff;">Plural</th>';
+  html += '<th style="background:' + data.theme.tableHeader + '; color:#fff;">Examples</th>';
+  html += '</tr></thead><tbody>';
+
+  var rules = data.pluralization || [];
+
+  for (var i = 0; i < rules.length; i++) {
+    var r = rules[i];
+    html += '<tr>';
+    html += '<td><strong>' + esc(r.rule) + '</strong></td>';
+    html += '<td>' + esc(r.singular) + '</td>';
+    html += '<td>' + esc(r.plural) + '</td>';
+    html += '<td class="text-muted" style="font-size:0.85rem;">' + esc(r.examples) + '</td>';
+    html += '</tr>';
+  }
+
+  html += '</tbody></table></div>';
+  container.innerHTML = html;
+}
+
 // --- Init ---
 renderLanguage('french', frenchData);
+renderLanguage('italian', italianData);
 renderLanguage('spanish', spanishData);
 renderLanguage('english', englishData);
+renderLanguage('german', germanData);
 renderLanguage('dutch', dutchData);
+renderLanguage('danish', danishData);
+renderLanguage('norwegian', norwegianData);
+renderLanguage('icelandic', icelandicData);
 renderLanguage('portuguese', portugueseData);
 renderLanguage('czech', czechData);
+renderLanguage('greek', greekData);
+renderLanguage('finnish', finnishData);
 renderChartPage('french-chart', frenchData);
+renderChartPage('italian-chart', italianData);
 renderChartPage('spanish-chart', spanishData);
 renderChartPage('portuguese-chart', portugueseData);
+renderChartPage('german-chart', germanData);
 renderChartPage('dutch-chart', dutchData);
+renderChartPage('danish-chart', danishData);
+renderChartPage('norwegian-chart', norwegianData);
+renderChartPage('icelandic-chart', icelandicData);
 renderChartPage('czech-chart', czechData);
+renderChartPage('greek-chart', greekData);
+renderChartPage('finnish-chart', finnishData);
 renderChartPage('english-chart', englishData);
+renderPluralization('english-pluralization', englishData);
+renderPluralization('french-pluralization', frenchData);
+renderPluralization('italian-pluralization', italianData);
+renderPluralization('spanish-pluralization', spanishData);
+renderPluralization('portuguese-pluralization', portugueseData);
+renderPluralization('german-pluralization', germanData);
+renderPluralization('dutch-pluralization', dutchData);
+renderPluralization('danish-pluralization', danishData);
+renderPluralization('norwegian-pluralization', norwegianData);
+renderPluralization('icelandic-pluralization', icelandicData);
+renderPluralization('czech-pluralization', czechData);
+renderPluralization('greek-pluralization', greekData);
+renderPluralization('finnish-pluralization', finnishData);
 
 if (window.navigator.standalone) document.documentElement.classList.add('standalone');
 
