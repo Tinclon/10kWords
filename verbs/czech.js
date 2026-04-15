@@ -1,6 +1,11 @@
 var czechData = {
   "language": "Czech",
   "title": "Czech Verbs",
+  "pages": [
+    { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
+    { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+  ],
   "theme": {
     "primary": "#6a1b9a",
     "secondary": "#4a148c",
@@ -12,6 +17,8 @@ var czechData = {
     "present": {
       "label": "Present (Přítomný čas)",
       "icon": "bi-record-circle",
+      "description": "Describes current states, habitual actions, and general truths. Czech verbs are classified by their present-tense conjugation pattern.",
+      "extra": "<strong>Czech Verb Classes</strong><br><br>Czech verbs are grouped by their present-tense endings. The class determines conjugation across all tenses.<br><br><table class=\"table table-bordered table-sm mb-0\"><thead><tr><th>Class</th><th>Present endings</th><th>Typical verbs</th><th>Pattern</th></tr></thead><tbody><tr><td><strong>-e class</strong></td><td>-u, -eš, -e, -eme, -ete, -ou</td><td>nést, brát, psát, mazat, péct</td><td>Consonant stems; many strong/irregular verbs</td></tr><tr><td><strong>-ne class</strong></td><td>-nu, -neš, -ne, -neme, -nete, -nou</td><td>tisknout, minout, začít</td><td>Verbs with -nout infinitive; often lose -n- in past</td></tr><tr><td><strong>-je class</strong></td><td>-uju/-uji, -uješ, -uje, -ujeme, -ujete, -ují</td><td>kupovat, pracovat, studovat</td><td>-ovat verbs (largest regular group)</td></tr><tr><td><strong>-á class</strong></td><td>-ám, -áš, -á, -áme, -áte, -ají</td><td>dělat, hrát, znát, bát se</td><td>-at verbs with -á- in present</td></tr><tr><td><strong>-í class</strong></td><td>-ím, -íš, -í, -íme, -íte, -í</td><td>prosit, mluvit, chodit, trpět, sázet</td><td>-it and -ět verbs; 3pl same as 3sg</td></tr></tbody></table>",
       "columns": [
         {
           "label": "-e / -ne class",
@@ -2470,7 +2477,20 @@ var czechData = {
       "description": "Gives commands, instructions, or requests directly."
     }
   ],
+  "pluralization": [
+    { "rule": "Masc. animate: -i (hard stems)", "singular": "student", "plural": "studenti", "examples": "kluk→kluci, pán→páni, soused→sousedi, voják→vojáci" },
+    { "rule": "Masc. animate: -ové / -é", "singular": "Čech", "plural": "Češi", "examples": "syn→synové, král→králové, učitel→učitelé, Angličan→Angličané" },
+    { "rule": "Masc. inanimate: -y (hard stems)", "singular": "hrad", "plural": "hrady", "examples": "dům→domy, strom→stromy, stůl→stoly, vlak→vlaky" },
+    { "rule": "Masc. inanimate: -e (soft stems)", "singular": "stroj", "plural": "stroje", "examples": "pokoj→pokoje, počítač→počítače, nůž→nože, klíč→klíče" },
+    { "rule": "Feminine: -y (hard stems)", "singular": "žena", "plural": "ženy", "examples": "škola→školy, kniha→knihy, ulice→ulice, kočka→kočky" },
+    { "rule": "Feminine: -e/-ě (soft stems)", "singular": "růže", "plural": "růže", "examples": "píseň→písně, kost→kosti, tramvaj→tramvaje" },
+    { "rule": "Neuter: -a (hard stems)", "singular": "město", "plural": "města", "examples": "okno→okna, slovo→slova, jablko→jablka, kolo→kola" },
+    { "rule": "Neuter: -e/-ě (soft stems)", "singular": "moře", "plural": "moře", "examples": "pole→pole, srdce→srdce, letiště→letiště" },
+    { "rule": "Neuter: -í (long stems)", "singular": "stavení", "plural": "stavení", "examples": "nádraží→nádraží, náměstí→náměstí, kuře→kuřata" },
+    { "rule": "Irregular", "singular": "dítě", "plural": "děti", "examples": "oko→oči, ucho→uši, člověk→lidé, přítel→přátelé, kníže→knížata" }
+  ],
   "chart": {
+    "info": "<strong>Czech Verb Classes:</strong> <strong>-e class</strong> (nést, brát, péct) — consonant stems, many irregular; <strong>-ne class</strong> (tisknout, minout) — -nout verbs; <strong>-je class</strong> (kupovat, pracovat) — -ovat verbs, largest regular group; <strong>-á class</strong> (dělat, hrát) — -at verbs with -á- in present; <strong>-í class</strong> (prosit, mluvit, trpět) — -it/-ět verbs, 3sg = 3pl.",
     "columns": ["Past (Minulý)", "Present (Přítomný)", "Future (Budoucí)", "Conditional (Podmiňovací)"],
     "rows": ["Indicative", "Past Conditional"],
     "groups": ["-e: nést", "-je: kupovat", "-í: prosit"],

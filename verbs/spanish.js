@@ -1,6 +1,11 @@
 var spanishData = {
   "language": "Spanish",
   "title": "Spanish Verbs",
+  "pages": [
+    { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
+    { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+  ],
   "theme": {
     "primary": "#b03060",
     "secondary": "#993366",
@@ -8180,6 +8185,15 @@ var spanishData = {
       "key": "imperative",
       "description": "Gives commands, instructions, or requests directly."
     }
+  ],
+  "pluralization": [
+    { "rule": "Ends in vowel: add -s", "singular": "casa", "plural": "casas", "examples": "libro→libros, gato→gatos, mesa→mesas, coche→coches" },
+    { "rule": "Ends in consonant: add -es", "singular": "ciudad", "plural": "ciudades", "examples": "color→colores, papel→papeles, reloj→relojes, león→leones" },
+    { "rule": "Ends in -z: change to -ces", "singular": "lápiz", "plural": "lápices", "examples": "pez→peces, luz→luces, voz→voces, vez→veces, cruz→cruces" },
+    { "rule": "Ends in -ión: add -es, drop accent", "singular": "canción", "plural": "canciones", "examples": "nación→naciones, opinión→opiniones, lección→lecciones" },
+    { "rule": "Ends in -és/-án/-ín: add -es, drop accent", "singular": "francés", "plural": "franceses", "examples": "alemán→alemanes, jardín→jardines, autobús→autobuses" },
+    { "rule": "Ends in unstressed -s: no change", "singular": "lunes", "plural": "lunes", "examples": "martes→martes, crisis→crisis, análisis→análisis, paraguas→paraguas" },
+    { "rule": "Irregular", "singular": "carácter", "plural": "caracteres", "examples": "régimen→regímenes, espécimen→especímenes" }
   ],
   "chart": {
     "columns": ["Past (Pasado)", "Present (Presente)", "Future (Futuro)", "Conditional (Condicional)"],

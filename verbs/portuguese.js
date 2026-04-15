@@ -1,6 +1,11 @@
 var portugueseData = {
   "language": "Portuguese",
   "title": "Portuguese Verbs",
+  "pages": [
+    { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
+    { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+  ],
   "theme": {
     "primary": "#388e5e",
     "secondary": "#2c6e49",
@@ -3384,6 +3389,19 @@ var portugueseData = {
       "extra": "<strong>Personal Infinitive — unique to Portuguese</strong><br><br>No other major Romance language has a conjugated infinitive. It allows the infinitive to express who performs the action:<br><br>• <em>É importante <strong>falarmos</strong></em> = It's important <strong>for us to speak</strong><br>• <em>Antes de <strong>saíres</strong></em> = Before <strong>you leave</strong><br>• <em>Sem <strong>eles saberem</strong></em> = Without <strong>them knowing</strong><br><br>The forms are identical to the future subjunctive for regular verbs, but they differ for irregular verbs (ser: future subj. <em>for</em> vs. personal inf. <em>ser</em>)."
     }
   },
+  "pluralization": [
+    { "rule": "Ends in vowel: add -s", "singular": "casa", "plural": "casas", "examples": "livro→livros, gato→gatos, mesa→mesas, carro→carros" },
+    { "rule": "Ends in -r, -s, -z: add -es", "singular": "flor", "plural": "flores", "examples": "mar→mares, país→países, luz→luzes, vez→vezes" },
+    { "rule": "-ão → -ões (most common)", "singular": "coração", "plural": "corações", "examples": "opinião→opiniões, limão→limões, eleição→eleições, canção→canções" },
+    { "rule": "-ão → -ães", "singular": "pão", "plural": "pães", "examples": "cão→cães, capitão→capitães, alemão→alemães" },
+    { "rule": "-ão → -ãos", "singular": "mão", "plural": "mãos", "examples": "irmão→irmãos, cidadão→cidadãos, grão→grãos, cristão→cristãos" },
+    { "rule": "-al → -ais", "singular": "animal", "plural": "animais", "examples": "jornal→jornais, hospital→hospitais, canal→canais, final→finais" },
+    { "rule": "-el → -éis", "singular": "papel", "plural": "papéis", "examples": "anel→anéis, pastel→pastéis, hotel→hotéis" },
+    { "rule": "-ol → -óis", "singular": "farol", "plural": "faróis", "examples": "anzol→anzóis, lençol→lençóis" },
+    { "rule": "-ul → -uis", "singular": "azul", "plural": "azuis", "examples": "paul→pauis" },
+    { "rule": "-m → -ns", "singular": "homem", "plural": "homens", "examples": "jardim→jardins, jovem→jovens, viagem→viagens, nuvem→nuvens" },
+    { "rule": "Irregular", "singular": "carácter", "plural": "caracteres", "examples": "cônsul→cônsules" }
+  ],
   "chart": {
     "columns": ["Past (Passado)", "Present (Presente)", "Future (Futuro)", "Conditional (Condicional)"],
     "rows": ["Simple (Simples)", "Compound (Composto)", "Imperfect (Imperfeito)", "Pluperfect (Mais-que-perfeito)"],

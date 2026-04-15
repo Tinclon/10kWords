@@ -1,6 +1,11 @@
 var frenchData = {
   "language": "French",
   "title": "French Verbs",
+  "pages": [
+    { "key": "conjugation", "icon": "bi-table", "label": "Conjugations" },
+    { "key": "chart", "icon": "bi-grid-3x3", "label": "Chart" },
+    { "key": "pluralization", "icon": "bi-files", "label": "Pluralization" }
+  ],
   "theme": {
     "primary": "#c62828",
     "secondary": "#b71c1c",
@@ -10482,6 +10487,18 @@ var frenchData = {
       "key": "imperative",
       "description": "Gives commands, instructions, or requests directly."
     }
+  ],
+  "pluralization": [
+    { "rule": "Regular: add -s", "singular": "chat", "plural": "chats", "examples": "livre→livres, maison→maisons, ami→amis, porte→portes" },
+    { "rule": "Ends in -au, -eau, -eu: add -x", "singular": "bateau", "plural": "bateaux", "examples": "chapeau→chapeaux, gâteau→gâteaux, jeu→jeux, noyau→noyaux" },
+    { "rule": "Ends in -al: change to -aux", "singular": "animal", "plural": "animaux", "examples": "cheval→chevaux, journal→journaux, hôpital→hôpitaux, canal→canaux" },
+    { "rule": "Exceptions: -al adds -s", "singular": "festival", "plural": "festivals", "examples": "bal→bals, carnaval→carnavals, récital→récitals, régal→régals" },
+    { "rule": "Ends in -ail: some change to -aux", "singular": "travail", "plural": "travaux", "examples": "vitrail→vitraux, corail→coraux, émail→émaux" },
+    { "rule": "Ends in -ail: regular add -s", "singular": "détail", "plural": "détails", "examples": "rail→rails, éventail→éventails, chandail→chandails" },
+    { "rule": "Ends in -ou: most add -s", "singular": "trou", "plural": "trous", "examples": "clou→clous, sou→sous, verrou→verrous" },
+    { "rule": "Ends in -ou: seven take -x", "singular": "bijou", "plural": "bijoux", "examples": "caillou→cailloux, chou→choux, genou→genoux, hibou→hiboux, joujou→joujoux, pou→poux" },
+    { "rule": "Ends in -s, -x, -z: no change", "singular": "bras", "plural": "bras", "examples": "voix→voix, nez→nez, souris→souris, noix→noix" },
+    { "rule": "Irregular", "singular": "œil", "plural": "yeux", "examples": "monsieur→messieurs, madame→mesdames, mademoiselle→mesdemoiselles" }
   ],
   "chart": {
     "columns": ["Past (Passé)", "Present (Présent)", "Future (Futur)", "Conditional (Conditionnel)"],
